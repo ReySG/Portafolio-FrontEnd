@@ -1,0 +1,23 @@
+h1 {
+  margin: 10px;
+  font-family: Ubuntu-Bold;
+  font-size: 50px;
+  color: #403866;
+}
+
+.wrap-login100 {
+  width: 390px;
+  background: #f5f6fa;
+  border-radius: 10px;
+  position: relative;
+}
+
+.login100-form {
+  width: 100%;
+
+  
+}
+
+.login100-form-btn {
+  background: rgb(10, 82, 124);
+}

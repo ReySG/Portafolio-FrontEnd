@@ -1,0 +1,15 @@
+.container {
+  padding-left: 10%;
+  padding-top: 5%;
+
+}
+
+
+.container img {
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 5%;
+    margin-left: 75%;
+}
+  

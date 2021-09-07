@@ -1,0 +1,100 @@
+<app-sidebar></app-sidebar>
+
+<div  class="container col-md-8">
+    <div class="my-2 text-left">
+      <button class="btn btn-rounded btn-primary" type="button" style="margin-top: 5%;">Crear productor</button>
+    </div>
+  
+    <div class="card text-primary">
+      <div class="card-header">
+        <h3>Listado de Productores</h3>
+        <div class="input-group rounded">
+          <input type="search" class="form-control rounded" placeholder="Buscar" aria-label="buscar"
+            aria-describedby="search-addon" />
+          <span class="input-group-text border-0" id="search-addon">
+            <i class="fas fa-search"></i>
+          </span>
+        </div>
+      </div>
+  
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr class="table-info text-center">
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Fecha creacion</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                <th>
+                  acciones
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text-center">
+                <td>1</td>
+                <td>Pedro</td>
+                <td>apellido</td>
+                <td>email</td>
+                <td>Fecha</td>
+                <td>Direccion</td>
+                <td>234234234</td>
+                <td>
+                  <button type="button" name="button" class="btn btn-warning" style="margin-bottom: 5px;">editar</button>
+                  <button type="button" name="eliminar" class="btn btn-danger"
+                    style="margin-left: 10px;">eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr class="text-center">
+                <td>2</td>
+                <td>Juan</td>
+                <td>apellido</td>
+                <td>email</td>
+                <td>Fecha</td>
+                <td>Direccion</td>
+                <td>234234234</td>
+                <td>
+                  <button type="button" name="button" class="btn btn-warning" style="margin-bottom: 5px;">editar</button>
+                  <button type="button" name="eliminar" class="btn btn-danger"
+                    style="margin-left: 10px;">eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr class="text-center">
+                <td>3</td>
+                <td>Diego</td>
+                <td>apellido</td>
+                <td>email</td>
+                <td>Fecha</td>
+                <td>Direccion</td>
+                <td>324234234</td>
+                <td>
+                  <button type="button" name="button" class="btn btn-warning" style="margin-bottom: 5px;">editar</button>
+                  <button type="button" name="eliminar" class="btn btn-danger"
+                    style="margin-left: 10px;">eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <button (click) = "ejecutar()"
+     class="btn btn-primary" 
+     type="button" name="button" style="width: 150px; margin: 13px;"
+     [disabled] = "loading">
+     
+      <i [ngClass] = "{ 'fa-sync fa-spin':loading }"
+       class="fas"></i>
+      <span *ngIf="!loading">Actualizar</span>
+      <span *ngIf="loading">Actualizando...</span>
+    </button>
+    </div>
+  </div>
+  
