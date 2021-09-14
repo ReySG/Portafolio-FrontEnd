@@ -11,11 +11,16 @@
 }
 
 .container {
+ 
   padding-left: 10%;
+  transition: margin-left .5s;
+}
 
-    transition: margin-left .5s;
-
-
+#button1,
+#button2 {
+  display: inline-block;
+  margin: 15px;
+  width: auto;
 
 }
 
@@ -59,3 +64,4 @@
     background: white;
     border-right: 2px solid rgb(5, 68, 104);
 }
+

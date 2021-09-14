@@ -1,0 +1,104 @@
+<!-- <app-sidebar></app-sidebar>
+<br>
+<div class="container col-md-8">
+  <div class="card text-primary">
+    <div class="card-header">
+      <h3>Listado de clientes</h3>
+    </div>
+    <div class="card-header">
+      <form>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Nombre</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nombre">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Apellido</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Apellido">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Email</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Direccion</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Direccion">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Telefono</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Telefono">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Seleccione tipo cliente</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>Cliente Local</option>
+            <option>Cliente Externo</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+
+      </form>
+      <button type="button" name="eliminar" class="btn btn-danger"
+                  style="margin-left: 10px;">eliminar</button>
+    </div>
+  </div>
+</div> -->
+<div class="abrir-modal animacion fadeIn" *ngIf="modalService.modal">
+  <div class="modal" tabindex="-1" role="dialog" style="display:block;">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Detalle Cliente</h5>
+          <button (click)="cerrarModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+
+            <form>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Nombre</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nombre">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Apellido</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Apellido">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Email</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Direccion</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Direccion">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Telefono</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Telefono">
+              </div>
+
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Seleccione tipo cliente</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>Cliente Local</option>
+                  <option>Cliente Externo</option>
+                </select>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" >Ventas</button>
+          <button type="button" name="eliminar" class="btn btn-danger" id="eliminar" style="margin-left: 10px;">Eliminar
+            Cliente</button>
+          <button (click)="cerrarModal()" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

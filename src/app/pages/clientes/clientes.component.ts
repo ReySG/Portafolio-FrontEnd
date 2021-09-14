@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalService } from './modal.service';
 
 @Component({
   selector: 'app-clientes',
@@ -9,7 +10,7 @@ export class ClientesComponent implements OnInit {
 
   loading:boolean = false;
 
-  constructor() { }
+  constructor(private modalService: ModalService) { }
 
   ngOnInit(): void {
   }
@@ -17,5 +18,9 @@ export class ClientesComponent implements OnInit {
   ejecutar() {
     this.loading = true;
     setTimeout( () => this.loading = false, 3000)
+  }
+
+  abrirModal() {
+    this.modalService.abrirModal();
   }
 }

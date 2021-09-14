@@ -1,16 +1,14 @@
+
+<app-clientes-form></app-clientes-form>
 <app-sidebar></app-sidebar>
-
+<br>
 <div class="container col-md-8">
-  <div class="my-2 text-left">
-    <button class="btn btn-rounded btn-primary" type="button" style="margin-top: 5%;">Crear Cliente</button>
-  </div>
-
 
   <div class="card text-primary">
     <div class="card-header">
-      <h3>Listado de clientes externos</h3>
+      <h3>Listado de clientes</h3>
       <div class="input-group rounded">
-        <input type="search" class="form-control rounded" placeholder="Buscar" aria-label="buscar"
+        <input type="search" class="form-control rounded" placeholder="Buscar por nombre" aria-label="buscar"
           aria-describedby="search-addon" />
         <span class="input-group-text border-0" id="search-addon">
           <i class="fas fa-search"></i>
@@ -24,12 +22,13 @@
           <thead>
             <tr class="table-info text-center">
               <th>Id</th>
+              <th>das</th>
               <th>Nombre</th>
               <th>Apellido</th>
               <th>Email</th>
               <th>Fecha creacion</th>
               <th>Direccion</th>
-              <th>Telefono</th>
+   
               <th>
                 acciones
               </th>
@@ -38,63 +37,64 @@
           <tbody>
             <tr class="text-center">
               <td>1</td>
+              <td><img src="../../../assets/images/16753832_990128301117200_1543747874_n.jpg" alt="" class="img-thumbnail rounded"
+                style="width:64px; cursor: pointer;"></td>
               <td>Pedro</td>
-              <td>apellido</td>
+              <td>Esponja</td>
               <td>email</td>
               <td>Fecha</td>
               <td>Direccion</td>
-              <td>234234234</td>
+        
               <td>
-                <button type="button" name="button" class="btn btn-warning" >editar</button>
-                <button type="button" name="eliminar" class="btn btn-danger"
-                  style="margin-left: 10px;">eliminar</button>
+                <button type="button" name="button" class="btn btn-warning" (click)="abrirModal()">Detalle</button>
               </td>
             </tr>
           </tbody>
           <tbody>
             <tr class="text-center">
               <td>2</td>
+              <td><img src="../../../assets/images/asdasf.PNG" alt="" class="img-thumbnail rounded"
+                style="width:64px; cursor: pointer;"></td>
               <td>Juan</td>
-              <td>apellido</td>
+              <td>Mohammed</td>
               <td>email</td>
               <td>Fecha</td>
               <td>Direccion</td>
-              <td>234234234</td>
+         
               <td>
-                <button type="button" name="button" class="btn btn-warning" >editar</button>
-                <button type="button" name="eliminar" class="btn btn-danger"
-                  style="margin-left: 10px;">eliminar</button>
+                <button type="button" name="button" class="btn btn-warning" [routerLink]="['/clientes/form']">Detalle</button>
               </td>
             </tr>
           </tbody>
           <tbody>
             <tr class="text-center">
               <td>3</td>
+              <td><img src="../../../assets/images/FB_IMG_1566752219171.jpg" alt="" class="img-thumbnail rounded"
+                style="width:64px; cursor: pointer;"></td>
               <td>Diego</td>
-              <td>apellido</td>
+              <td>Poppy</td>
               <td>email</td>
               <td>Fecha</td>
               <td>Direccion</td>
-              <td>324234234</td>
+       
               <td>
-                <button type="button" name="button" class="btn btn-warning" >editar</button>
-                <button type="button" name="eliminar" class="btn btn-danger"
-                  style="margin-left: 10px;">eliminar</button>
+                <button type="button" name="button" class="btn btn-warning" [routerLink]="['/clientes/form']">Detalle</button>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <button (click) = "ejecutar()"
-     class="btn btn-primary" 
-     type="button" name="button" style="width: 150px; margin: 13px;"
-     [disabled] = "loading">
-     
-      <i [ngClass] = "{ 'fa-sync fa-spin':loading }"
-       class="fas"></i>
-      <span *ngIf="!loading">Actualizar</span>
-      <span *ngIf="loading">Actualizando...</span>
-    </button>
+
+    <div class="botones">
+      <button (click)="ejecutar()" class="btn btn-primary" type="button" name="button" id="button1"[disabled]="loading">
+
+        <i [ngClass]="{ 'fa-sync fa-spin':loading }" class="fas"></i>
+        <span *ngIf="!loading">Actualizar</span>
+        <span *ngIf="loading">Actualizando...</span>
+      </button>
+
+      <button class="btn btn-rounded btn-primary" type="button" id="button2">Crear Cliente</button>
+    </div>
   </div>
 </div>

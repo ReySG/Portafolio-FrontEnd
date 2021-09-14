@@ -14,6 +14,7 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { ComerciantesComponent } from './pages/comerciantes/comerciantes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ClientesFormComponent } from './pages/clientes/clientes-form/clientes-form.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PerfilComponent,
     UsuariosComponent,
     ComerciantesComponent,
+    ClientesFormComponent,
 
   ],
   imports: [
