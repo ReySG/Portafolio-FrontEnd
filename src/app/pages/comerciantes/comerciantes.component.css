@@ -2,4 +2,12 @@
     padding-left: 10%;
   
 }
+
+#button1,
+#button2 {
+  display: inline-block;
+  margin: 15px;
+  width: auto;
+
+}
   

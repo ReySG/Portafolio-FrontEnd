@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if(this.authService.isAuthenticated()){
       swal.fire('login',`Hola ${this.authService.usuario.username}ya estas autenticado!`,'info')
-      this.router.navigate(['/clientes']);
+      this.router.navigate(['/perfil']);
     }
   }
 
@@ -34,13 +34,14 @@ export class LoginComponent implements OnInit {
     }
     this.authService.login(this.usuario).subscribe(response => {
       console.log(response);
+    
 
 
       this.authService.guardarUsuario(response.access_token);
       this.authService.guardarToken(response.access_token);
       let usuario = this.authService.usuario;
-      this.router.navigate(['/clientes']);
-      swal.fire('Login', `Hola ${usuario.username}, has iniciado sesión con éxito!`,'success');
+      this.router.navigate(['/perfil']);
+      swal.fire('Logueado', `${usuario.username}, Bienvenido!`,'success');
 
     }, error => {
       if(error.status == 400){

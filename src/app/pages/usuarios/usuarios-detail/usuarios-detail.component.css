@@ -1,0 +1,6 @@
+.p-multiselect-label-container {
+    overflow: hidden;
+    flex: 1 1 auto;
+    cursor: pointer;
+    width: 500px;
+}

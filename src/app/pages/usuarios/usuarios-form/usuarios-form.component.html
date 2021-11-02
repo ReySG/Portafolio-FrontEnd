@@ -1,0 +1,92 @@
+<app-sidebar></app-sidebar>
+<br>
+<ul class="alert alert-danger" *ngIf="errores?.length > 0">
+  <li *ngFor="let err of errores">
+    {{ err }}
+  </li>
+</ul>
+<div class="container col-md-8">
+  <div class="card text-primary">
+    <div class="card-header">
+      <h3>Registro de Usuario</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group row">
+          <label for="username" class="col-form-label col-sm-2">Usuario</label>
+          <div class="col-sm-6">
+            <input type="text" placeholder="Nombre de usuario" class="form-control" formControlName="username"
+              [class.is-invalid]="nombreNotValid">
+            <small class="text-danger" *ngIf="nombreNotValid">
+              Ingrese nombre de usuario
+            </small>
+            <!-- metodo para validar : required minlength="4" -->
+
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="email" class="col-form-label col-sm-2">Email</label>
+          <div class="col-sm-6">
+            <input type="text" placeholder="Email" class="form-control" formControlName="email"
+              [class.is-invalid]="emailNotValid">
+            <small class="text-danger" *ngIf="emailNotValid">
+              Ingrese correo electronico
+            </small>
+            <!--required email -->
+
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="password" class="col-form-label col-sm-2">Contraseña</label>
+          <div class="col-sm-6">
+            <input type="text" placeholder="Contraseña" class="form-control" formControlName="password"
+              [class.is-invalid]="passwordNotValid">
+            <small class="text-danger" *ngIf="passwordNotValid">
+              Ingrese alguna contraseña(minimo 4 caracteres)
+            </small>
+            <!-- required -->
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="roles" class="col-form-label col-sm-2">Roles</label>
+          <div class="col-sm-6">
+            <p-multiSelect class="form-control" [options]="roles" formControlName="roles" display="chip" [style]="{ width: '100%'}"
+              optionLabel="nombre" [virtualScroll]="true" [filter]="true" [class.is-invalid]="rolesNotValid"
+              [itemSize]="34" defaultLabel="Tipo de roles" class="multiselect-custom-virtual-scroll"
+              optionValue="nombre">
+              <div class="role-item" *ngFor="let role of roles">
+                <div>{{ role.nombre}}</div>
+              </div>
+            </p-multiSelect>
+            <small class="text-danger" *ngIf="rolesNotValid">
+              Ingrese algun rol
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <button class="btn btn-rounded btn-secondary" type="button" [routerLink]="['/usuarios']">Volver</button>
+            <button class="btn btn-primary" type="submit">Crear</button>
+
+          </div>
+        </div>
+
+      </form>
+
+      <hr>
+      <pre>
+        Estado del formulario: {{ registerForm.valid }}
+        <br>
+        Status: {{ registerForm.status }}
+      </pre>
+      {{ registerForm.value | json }}
+
+
+    </div>
+  </div>
+</div>

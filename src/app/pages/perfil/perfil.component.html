@@ -3,7 +3,9 @@
 <div class="container col-md-8">
     <div class="card mb-3 content">
         <h1 class="m-3 pt-3">Perfil</h1>
-        <img src="../../../assets/images/asdasf.PNG" alt="">
+        <img src="../../../assets/images/asdasf.PNG" alt=""   (click)="selectFile.click()">
+        <input type="file" (change)="seleccionarFoto($event)" style="display: none" #selectFile>
+
         <div class="card-body">
             <div class="row">
                 <div class="col-md-3">

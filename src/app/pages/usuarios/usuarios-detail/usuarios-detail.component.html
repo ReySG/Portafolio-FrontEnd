@@ -1,0 +1,101 @@
+<div class="abrir-modal animacion fadeIn" *ngIf="modalService.modal">
+  <div class="modal" tabindex="-1" role="dialog" style="display:block;">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Detalle Cliente</h5>
+          <button (click)="cerrarModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <form #usuarioForm="ngForm">
+
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Nombre</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nombre"
+                  [(ngModel)]="usuario.username" #username="ngModel" name="username">
+              </div>
+
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Email</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email"
+                  [(ngModel)]="usuario.email" #email="ngModel" name="email">
+              </div>
+
+              <!-- <div class="form-group">
+                <label for="exampleFormControlSelect1">Tipo de rol</label>
+                <select  class="form-control" [(ngModel)]="usuario" name="role">
+                  <option *ngFor="let role of objectKeys(usuario.roles)" [ngValue]="role">
+                    {{ usuario.roles[role].nombre}}
+                  </option>
+                </select>
+
+              </div> -->
+
+              <div class="form-group">
+                <label for="roles">Roles</label>
+                <div class="col-sm-6">
+                  <p-multiSelect  [options]="roles" [(ngModel)]="seleccionados" name="roles"
+                    display="chip" name="roles" optionLabel="nombre" defaultLabel="Tipo de roles" [virtualScroll]="true"
+                    [filter]="true" [itemSize]="34"
+                    class="multiselect-custom-virtual-scroll" optionValue="nombre" selectedItemsLabel="compararRole">
+                    <div class="role-item" *ngFor="let role of roles">
+                      <div>{{ role.nombre}}</div>
+                    </div>
+                  </p-multiSelect>
+                </div>
+              </div>
+
+
+            </form>
+            >
+
+            <!-- <div class="row">
+              <div class="col-sm">
+                <ul *ngIf="usuario" class="list-group text-dark mb-3">
+                  <li class="list-group-item active">{{usuario.username}}</li>
+                  <li class="list-group-item">{{usuario.email}}</li>
+                  <li class="list-group-item">{{usuario.roles}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- <table class="table table-bordered">
+            <thead>
+              <tr class="table-info text-center">
+                <th>id</th>
+                <th>username</th>
+                <th>email</th>
+                <th>roles</th>
+                <th>
+                  acciones
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngIf="usuario"  >
+                <td>{{ usuario.id}}</td>
+                <td>{{ usuario.username}}</td>
+                <td>{{ usuario.email}}</td>
+              </tr>
+            </tbody>
+  
+          </table> -->
+
+            {{ usuario | json }}
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Ventas</button>
+            <button type="button" name="eliminar" class="btn btn-danger" id="eliminar"
+              style="margin-left: 10px;">Eliminar
+              Cliente</button>
+            <button (click)="cerrarModal()" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

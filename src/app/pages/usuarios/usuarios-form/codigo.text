@@ -1,0 +1,99 @@
+
+<app-sidebar></app-sidebar>
+<br>
+<ul class="alert alert-danger" *ngIf="errores?.length > 0">
+    <li *ngFor="let err of errores">
+      {{ err }}
+    </li>
+  </ul>
+<div class="container col-md-8">
+  <div class="card text-primary">
+    <div class="card-header">
+      <h3>Registro de Usuario</h3>
+    </div>
+    <div class="card-body">
+      <form #usuarioForm="ngForm">
+        <div class="form-group row">
+          <label for="username" class="col-form-label col-sm-2">Usuario</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="usuario.username" name="username" #username="ngModel">
+            <!-- metodo para validar : required minlength="4" -->
+            <div class="alert alert-danger" *ngIf="username.invalid && (username.dirty || username.touched)">
+              <div *ngIf="username.errors.required">
+                    Nombre de usuario es requerido
+                </div>
+              <div *ngIf="username.errors.minlength">
+                  Nombre de usuario debe tener al menos 4 caracteres
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="email" class="col-form-label col-sm-2">Email</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="usuario.email" name="email" #email="ngModel">
+            <!--required email -->
+            <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+              <div *ngIf="email.errors.required">
+                Email es requerido
+              </div>
+              <div *ngIf="username.errors.email">
+                Email debe tener formato valido
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="password" class="col-form-label col-sm-2">Contraseña</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)]="usuario.password" name="password" #password="ngModel">
+            <!-- required -->
+          </div>
+          <div class="alert alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+            <div *ngIf="password.errors.required">
+              password es requerido
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="roles" class="col-form-label col-sm-2">Roles</label>
+          <div class="col-sm-6">
+            <p-multiSelect class="form-control" [options]="roles" [(ngModel)]="selectedRoles" display="chip" name="roles"
+              optionLabel="nombre" [virtualScroll]="true" [filter]="true" [itemSize]="34" defaultLabel="Tipo de roles"
+              class="multiselect-custom-virtual-scroll" optionValue="nombre">
+                <div class="role-item" *ngFor="let role of roles" >
+                        <div>{{ role.nombre}}</div>
+                </div>
+            </p-multiSelect>
+          </div>
+
+
+          <!-- <label for="exampleFormControlSelect1">Tipo de rol</label>
+          <select class="form-control" [(ngModel)]="usuario.roles" name="roles">
+            <option [ngValue]="undefined">--- selecionar uno o varios roles ---</option>
+            <option *ngFor="let role of roles" [ngValue]="role">
+              {{ role.nombre}}
+            </option>
+          </select> -->
+
+          
+
+        </div>
+
+
+
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <button class="btn btn-rounded btn-secondary" type="button" [routerLink]="['/usuarios']">Volver</button>
+            <button class="btn btn-primary" role="button" (click)='create()'>Crear</button>
+
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div> 

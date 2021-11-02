@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Usuario } from '../pages/models/usuario';
+import { Role } from '../pages/models/role';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,8 @@ export class AuthService {
   public get usuario(): Usuario{
     if(this._usuario !=null){
       return this._usuario;
-    }else if(this._usuario == null && sessionStorage.getItem('usuario') !=null){
-      JSON.parse(sessionStorage.getItem('usuario')) as Usuario;
+    }else if(this._usuario == null && localStorage.getItem('usuario') !=null){
+      JSON.parse(localStorage.getItem('usuario')) as Usuario;
       return this._usuario;
     }
     return new Usuario();
@@ -26,8 +27,8 @@ export class AuthService {
   public get token(): string{
     if(this._token !=null){
       return this._token;
-    }else if(this._token == null && sessionStorage.getItem('token') !=null){
-      this._token = sessionStorage.getItem('token');
+    }else if(this._token == null && localStorage.getItem('token') !=null){
+      this._token = localStorage.getItem('token');
       return this._token;
     }
     return null;
@@ -57,17 +58,17 @@ export class AuthService {
   guardarUsuario(accessToken: string):void{
     let payload = this.obtenerDatosToken(accessToken)
     this._usuario = new Usuario
-    this._usuario.apellido = payload.apellido;
     this._usuario.email = payload.email;
     this._usuario.username = payload.user_name;
     this._usuario.roles = payload.authorities;
-    sessionStorage.setItem('usuario', JSON.stringify(this._usuario));
+    localStorage.setItem('usuario', JSON.stringify(this._usuario));
+    console.log(this._usuario.roles);
 
   }
 
   guardarToken(accessToken: string):void{
     this._token = accessToken;
-    sessionStorage.setItem('token', accessToken);
+    localStorage.setItem('token', accessToken);
 
   }
 
@@ -81,6 +82,8 @@ export class AuthService {
   }
 
   hasRole(role: string):boolean{
+
+
     if(this.usuario.roles.includes(role)){
       return true;
     }
@@ -91,6 +94,6 @@ export class AuthService {
   logout():void{
     this._token = null;
     this._usuario = null;
-    sessionStorage.clear();
+    localStorage.clear();
   }
 }

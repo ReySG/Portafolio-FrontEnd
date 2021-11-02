@@ -1,0 +1,59 @@
+<app-usuarios-detail></app-usuarios-detail>
+<app-sidebar></app-sidebar>
+<br>
+<div class="container col-md-8">
+  <div class="card text-primary">
+    <div class="card-header">
+      <h3>Solicitudes de Venta</h3>
+      <div class="input-group rounded">
+        <input type="search" class="form-control rounded" placeholder="Buscar por nombre de usuario" aria-label="buscar"
+          aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr class="table-info text-center">
+              <th>id</th>
+              <th>username</th>
+              <th>email</th>
+              <th>Estado</th>
+              <th>
+                Acciones
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>cliente</td>
+              <td>qweasdqw@gmail.com</td>
+              <td>En proceso</td>
+              <div class="botonez">
+                <td>
+                  <button type="button" name="button" class="btn btn-warning">Aprobar</button>
+                  <button type="button" name="button2" class="btn btn-danger">Rechazar</button>
+                </td>
+              </div>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+    <div class="botones">
+      <button class="btn btn-primary" type="button" name="button" id="button1" [disabled]="loading">
+        <i [ngClass]="{ 'fa-sync fa-spin':loading }" class="fas"></i>
+        <span *ngIf="!loading">Actualizar</span>
+        <span *ngIf="loading">Actualizando...</span>
+      </button>
+    </div>
+    <app-paginator></app-paginator>
+
+  </div>
+</div>

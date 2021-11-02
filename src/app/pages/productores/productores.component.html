@@ -1,4 +1,4 @@
-<app-sidebar></app-sidebar>
+<!-- <app-sidebar></app-sidebar>
 <br>
 <div class="container col-md-8">
   <div class="card text-primary">
@@ -89,6 +89,69 @@
         <span *ngIf="loading">Actualizando...</span>
       </button>
       <button class="btn btn-rounded btn-primary" type="button"  id="button2">Registrar Productor</button>
+    </div>
+  </div>
+</div> -->
+
+<app-clientes-detail></app-clientes-detail>
+<app-sidebar></app-sidebar>
+<br>
+<div class="container col-md-8">
+
+  <div class="card text-primary">
+    <div class="card-header">
+      <h3>Listado de productores</h3>
+      <div class="input-group rounded">
+        <input type="search" class="form-control rounded" placeholder="Buscar por nombre" aria-label="buscar"
+          aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr class="table-info text-center">
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Apellidos</th>
+              <th>Email</th>
+              <th>Direccion</th>
+              <th>Numero</th>
+              <th>
+                acciones
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-center" *ngFor="let productor of productores">
+              <td>{{ productor.id }}</td>
+              <td>{{ productor.nombre }}</td>
+              <td>{{ productor.apellidoPaterno }}</td>
+              <td>{{ productor.email }}</td>
+              <td>{{ productor.direccion }}</td>
+              <td>{{ productor.numero }}</td>
+              <td>
+                <button type="button" name="button" class="btn btn-warning" (click)="abrirModal()">Detalle</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="botones">
+      <button (click)="ejecutar()" class="btn btn-primary" type="button" name="button" id="button1"[disabled]="loading">
+
+        <i [ngClass]="{ 'fa-sync fa-spin':loading }" class="fas"></i>
+        <span *ngIf="!loading">Actualizar</span>
+        <span *ngIf="loading">Actualizando...</span>
+      </button>
+
+      <button class="btn btn-rounded btn-primary" type="button" id="button2">Crear Cliente</button>
     </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<app-sidebar></app-sidebar>
+<!-- <app-sidebar></app-sidebar>
 
 <div class="container col-md-8">
   <div class="my-2 text-left">
@@ -97,4 +97,105 @@
       <span *ngIf="loading">Actualizando...</span>
     </button>
   </div>
+</div> -->
+
+<app-clientes-detail></app-clientes-detail>
+<app-sidebar></app-sidebar>
+<br>
+<div class="container col-md-8">
+
+  <div class="card text-primary">
+    <div class="card-header">
+      <h3>Listado de Comerciantes</h3>
+      <div class="input-group rounded">
+        <input type="search" class="form-control rounded" placeholder="Buscar por nombre" aria-label="buscar"
+          aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr class="table-info text-center">
+              <th>Id</th>
+              <th>das</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Email</th>
+              <th>Fecha creacion</th>
+              <th>Direccion</th>
+   
+              <th>
+                acciones
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-center">
+              <td>1</td>
+              <td><img src="../../../assets/images/16753832_990128301117200_1543747874_n.jpg" alt="" class="img-thumbnail rounded"
+                style="width:64px; cursor: pointer;"></td>
+              <td>Pedro</td>
+              <td>Esponja</td>
+              <td>email</td>
+              <td>Fecha</td>
+              <td>Direccion</td>
+        
+              <td>
+                <button type="button" name="button" class="btn btn-warning" (click)="abrirModal()">Detalle</button>
+              </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr class="text-center">
+              <td>2</td>
+              <td><img src="../../../assets/images/asdasf.PNG" alt="" class="img-thumbnail rounded"
+                style="width:64px; cursor: pointer;"></td>
+              <td>Juan</td>
+              <td>Mohammed</td>
+              <td>email</td>
+              <td>Fecha</td>
+              <td>Direccion</td>
+         
+              <td>
+                <button type="button" name="button" class="btn btn-warning" (click)="abrirModal()">Detalle</button>
+              </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr class="text-center">
+              <td>3</td>
+              <td><img src="../../../assets/images/FB_IMG_1566752219171.jpg" alt="" class="img-thumbnail rounded"
+                style="width:64px; cursor: pointer;"></td>
+              <td>Diego</td>
+              <td>Poppy</td>
+              <td>email</td>
+              <td>Fecha</td>
+              <td>Direccion</td>
+       
+              <td>
+                <button type="button" name="button" class="btn btn-warning" (click)="abrirModal()">Detalle</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="botones">
+      <button (click)="ejecutar()" class="btn btn-primary" type="button" name="button" id="button1"[disabled]="loading">
+
+        <i [ngClass]="{ 'fa-sync fa-spin':loading }" class="fas"></i>
+        <span *ngIf="!loading">Actualizar</span>
+        <span *ngIf="loading">Actualizando...</span>
+      </button>
+
+      <button class="btn btn-rounded btn-primary" type="button" id="button2">Crear Cliente</button>
+    </div>
+  </div>
 </div>
+

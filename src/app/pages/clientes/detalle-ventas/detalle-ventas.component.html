@@ -1,0 +1,31 @@
+<div class="abrir-modal" *ngIf="modalService.modal">
+    <div class="modal" tabindex="-1" role="dialog" style="display:block;">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Detalle Cliente</h5>
+            <button (click)="cerrarModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+  
+              <form>
+                
+
+              </form>
+            </div>
+          </div>
+  
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" >Ventas</button>
+            <button type="button" name="eliminar" class="btn btn-danger" id="eliminar" style="margin-left: 10px;">Eliminar
+              Cliente</button>
+            <button (click)="cerrarModal()" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

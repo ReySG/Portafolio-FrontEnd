@@ -4,6 +4,13 @@ h1 {
   font-size: 50px;
   color: #403866;
 }
+.navbar-brand span {
+  font-weight: bold;
+  color: #000000;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
 
 .wrap-login100 {
   width: 390px;
@@ -19,5 +26,5 @@ h1 {
 }
 
 .login100-form-btn {
-  background: rgb(10, 82, 124);
+  background: #f89646;
 }

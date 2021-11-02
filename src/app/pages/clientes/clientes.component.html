@@ -1,9 +1,8 @@
 
-<app-clientes-form></app-clientes-form>
+<app-clientes-detail></app-clientes-detail>
 <app-sidebar></app-sidebar>
 <br>
 <div class="container col-md-8">
-
   <div class="card text-primary">
     <div class="card-header">
       <h3>Listado de clientes</h3>
@@ -37,8 +36,7 @@
           <tbody>
             <tr class="text-center">
               <td>1</td>
-              <td><img src="../../../assets/images/16753832_990128301117200_1543747874_n.jpg" alt="" class="img-thumbnail rounded"
-                style="width:64px; cursor: pointer;"></td>
+              <p-avatar icon="pi pi-user" styleClass="p-mr-2" size="xlarge"></p-avatar>
               <td>Pedro</td>
               <td>Esponja</td>
               <td>email</td>
@@ -53,8 +51,8 @@
           <tbody>
             <tr class="text-center">
               <td>2</td>
-              <td><img src="../../../assets/images/asdasf.PNG" alt="" class="img-thumbnail rounded"
-                style="width:64px; cursor: pointer;"></td>
+              <p-avatar icon="pi pi-user" styleClass="p-mr-2" size="xlarge"></p-avatar>
+
               <td>Juan</td>
               <td>Mohammed</td>
               <td>email</td>
@@ -62,15 +60,15 @@
               <td>Direccion</td>
          
               <td>
-                <button type="button" name="button" class="btn btn-warning" [routerLink]="['/clientes/form']">Detalle</button>
+                <button type="button" name="button" class="btn btn-warning" (click)="abrirModal()">Detalle</button>
               </td>
             </tr>
           </tbody>
           <tbody>
             <tr class="text-center">
               <td>3</td>
-              <td><img src="../../../assets/images/FB_IMG_1566752219171.jpg" alt="" class="img-thumbnail rounded"
-                style="width:64px; cursor: pointer;"></td>
+              <p-avatar icon="pi pi-user" styleClass="p-mr-2" size="xlarge"></p-avatar>
+
               <td>Diego</td>
               <td>Poppy</td>
               <td>email</td>
@@ -78,7 +76,7 @@
               <td>Direccion</td>
        
               <td>
-                <button type="button" name="button" class="btn btn-warning" [routerLink]="['/clientes/form']">Detalle</button>
+                <button type="button" name="button" class="btn btn-warning" (click)="abrirModal()">Detalle</button>
               </td>
             </tr>
           </tbody>

@@ -1,0 +1,61 @@
+<app-sidebar></app-sidebar>
+<br>
+
+<div class="container col-md-8">
+  <div class="card text-primary">
+    <div class="card-header">
+      <h3>Crear Nuevo proceso de Venta</h3>
+    </div>
+    <div class="card-body">
+      <form>
+
+        <div class="form-group row">
+          <label for="username" class="col-form-label col-sm-2">Usuario</label>
+          <div class="col-sm-6">
+            <input type="text" placeholder="Nombre de usuario" class="form-control">
+            <small class="text-danger">
+              Ingrese nombre de usuario
+            </small>
+            <!-- metodo para validar : required minlength="4" -->
+
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="email" class="col-form-label col-sm-2">Email</label>
+          <div class="col-sm-6">
+            <input type="text" placeholder="Email" class="form-control">
+            <small class="text-danger">
+              Ingrese correo electronico
+            </small>
+            <!--required email -->
+
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="email" class="col-form-label col-sm-2">Tipo de proceso</label>
+
+          <div class="col-sm-6">
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Externo/Local</option>
+              <option value="1">Externo</option>
+              <option value="2">Local</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <button class="btn btn-rounded btn-secondary" type="button" [routerLink]="['/perfil']">Volver</button>
+            <button class="btn btn-primary" type="submit">Crear</button>
+
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>

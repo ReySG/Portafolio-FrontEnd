@@ -1,10 +1,8 @@
 export class Usuario {
-    id:number;
-    username:string;
+    id: number;
+    username: string;
     password: string
-    apellido: string;
     email: string;
-    roles: string[]=[];
-  
+    roles: string[] = [];
+
 }
-  

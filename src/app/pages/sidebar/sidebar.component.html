@@ -1,46 +1,49 @@
 <div class="wrapper">
   <div class="sidebar">
     <div class="profile">
-      <img src="../../../assets/images/asdasf.PNG" alt="">
+      <p-avatar icon="pi pi-user" styleClass="p-mr-2" size="xlarge" shape="circle"></p-avatar>
       <h3>Usuario</h3>
+      <i class="pi pi-bell p-mr-2 p-text-secondary" styleClass="p-mr-2" pBadge style="font-size: 2rem" value="2"></i>
       <a href="/perfil">
         <p>Administrador</p>
       </a>
     </div>
     <ul>
-      <li><a href="#">
+      <!-- <li><a href="/perfil" *ngIf="authService.isAuthenticated()">
+          <span class="icon"><i class="fas fa-home"></i></span>
           <span class="item">Home</span>
-        </a></li>
-      <li><a routerLink="/productores">
+        </a></li> -->
+      <li><a routerLink="/productores" *ngIf="authService.hasRole('ROLE_ADMIN')">
+          <span class="icon"><i class="fas fa-user-friends"></i></span>
           <span class="item">Productores</span>
         </a></li>
-      <li><a routerLink="/clientes">
+      <li><a routerLink="/clientes" *ngIf="authService.hasRole('ROLE_ADMIN')">
+          <span class="icon"><i class="fas fa-users"></i></span>
           <span class="item">Clientes</span>
         </a></li>
-      <li><a routerLink="/comerciantes">
+      <li><a routerLink="/comerciantes" *ngIf="authService.hasRole('ROLE_ADMIN')">
+          <span class="icon"><i class="fas fa-handshake"></i></span>
           <span class="item">Comerciantes</span>
         </a></li>
-      <li><a href="#">
-        <span class="item">Contratos</span>
-      </a></li>
-      <li><a href="#">
-          <span class="item">Procesos de venta</span>
-        </a></li>
-      <li><a href="/usuarios">
+      <li><a routerLink="/usuarios" *ngIf="authService.hasRole('ROLE_ADMIN')">
+          <span class="icon"><i class="fas fa-user"></i></span>
           <span class="item">Usuarios</span>
         </a></li>
-      <li><a href="#">
-          <span class="item">Pagos</span>
+      <li><a routerLink="/solicitud-list" *ngIf="authService.hasRole('ROLE_ADMIN')">
+          <span class="icon"><i class="fas fa-file-invoice"></i></span>
+          <span class="item">Solicitudes de compra</span>
         </a></li>
-      <li><a href="#">
-          <span class="item">Productos(productores)</span>
+      <li><a routerLink="/proceso-venta" *ngIf="authService.hasRole('ROLE_ADMIN')">
+          <span class="icon"><i class="fas fa-file-invoice"></i></span>
+          <span class="item">Procesos de venta</span>
         </a></li>
-      <li><a href="#">
-          <span class="item">Subastas</span>
+      <li><a href="#" *ngIf="authService.hasRole('ROLE_PRODUCTOR')">
+          <span class="item">Productos</span>
         </a></li>
-      <li><a href="#">
-          <span class="item">Reportes</span>
+      <li><a routerLink="/solicitud" *ngIf="authService.hasRole('ROLE_CLIENTE_EXTERNO')">
+          <span class="item">Crear Solicitud</span>
         </a></li>
+      <button (click)="logout()" class="dropdown-item" type="submit">Log Out</button>
     </ul>
   </div>
 </div>

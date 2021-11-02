@@ -1,0 +1,131 @@
+/* .card-img, .card-img-bottom, .card-img-top {
+    width: 50%;
+} */
+
+
+
+.slider_section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 90px;
+  position: relative;
+}
+.slider_section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 450px;
+  height: 500px;
+  -webkit-transform: translateY(-100px);
+          transform: translateY(-100px);
+  background-color: #ebf3fa;
+  z-index: -1;
+}
+
+.slider_section .row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.slider_section .detail-box h1 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.slider_section .detail-box a {
+  margin: 5px;
+  width: 175px;
+  text-align: center;
+}
+.detail-box {
+margin-top: 20%;
+}
+.slider_section .detail-box .btn-1 {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #2bb469;
+  color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid #2bb469;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  font-size: 18px;
+}
+
+.slider_section .detail-box .btn-1:hover {
+  background-color: transparent;
+  color: #4E7F6A;
+}
+.slider_section .img-box img {
+  width: 100%;
+}
+
+.slider_section .detail-box .btn-2 {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #f89646;
+  color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid #f89646;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  font-size: 18px;
+
+}
+
+.slider_section .detail-box .btn-2:hover {
+  background-color: transparent;
+  color: #f89646;
+}
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+/* About seccion */
+.about_section {
+  background-color: #ebf3fa;
+}
+
+.about_section .row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about_section .img-box img {
+  width: 100%;
+}
+
+.about_section .detail-box p {
+  color: #999;
+  margin-top: 15px;
+}
+
+.about_section .detail-box a {
+  display: inline-block;
+  padding: 10px 45px;
+  background-color: #f89646;
+  color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid #f89646;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  margin-top: 15px;
+}
+
+.about_section .detail-box a:hover {
+  background-color: transparent;
+  color: #f89646;
+}
+
+
+

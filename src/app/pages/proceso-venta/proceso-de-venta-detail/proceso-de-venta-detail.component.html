@@ -1,0 +1,26 @@
+<app-sidebar></app-sidebar>
+<br>
+<div class="container col-md-8">
+  <div class="card text-primary">
+    <div class="card-header">
+      <h3>Detalle Proceso de venta</h3>
+    </div>
+    <p-menubar [model]="items" [style]="{'background-color': 'white'}" [style]="{'border': 'none'}">
+    </p-menubar>
+    <div class="card-body text-black">
+      <h6>Proceso venta N° 523</h6>
+      <h6>Cliente: John Wick</h6>
+
+      <p-timeline [value]="events" layout="horizontal" align="top" [style]="{'margin-top': '45px'}">
+        <ng-template pTemplate="content" let-event>
+          <small class="p-text-secondary">{{event.date}}</small>
+        </ng-template>
+        <ng-template pTemplate="opposite" let-event>
+          {{event.status}}
+        </ng-template>
+      </p-timeline>
+
+    </div>
+
+  </div>
+</div>
