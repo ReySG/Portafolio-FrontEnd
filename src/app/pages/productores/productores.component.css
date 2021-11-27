@@ -1,5 +1,11 @@
 .container {
   padding-left: 10%;
+  width: 100%;
+  position: fixed;
+}
+
+app-paginator {
+  padding-left: 15px;
 }
 
 #button1,

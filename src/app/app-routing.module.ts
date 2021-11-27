@@ -20,6 +20,8 @@ import { SolicitudComponent } from './pages/solicitud/solicitud.component';
 import { ProcesoVentaComponent } from './pages/proceso-venta/proceso-venta.component';
 import { SolicitudListComponent } from './pages/solicitud/solicitud-list/solicitud-list.component';
 import { ProcesoDeVentaDetailComponent } from './pages/proceso-venta/proceso-de-venta-detail/proceso-de-venta-detail.component';
+import { ProductoresFormComponent } from './pages/productores/productores-form/productores-form.component';
+import { ProductosFormComponent } from './pages/productores/productos-form/productos-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -28,9 +30,12 @@ const routes: Routes = [
   { path: 'clientes', component: ClientesComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' } },
   { path: 'clientes/detail', component: ClientesDetailComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' } },
   { path: 'usuarios', component: UsuariosComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' } },
-  { path: 'usuarios/form', component: UsuariosFormComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' }},
-  {path: 'usuarios/page/:page', component: UsuariosComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' } },
+  { path: 'usuarios/form', component: UsuariosFormComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' } },
+  { path: 'usuarios/page/:page', component: UsuariosComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' } },
   { path: 'productores', component: ProductoresComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' } },
+  { path: 'productos', component: ProductosFormComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'ROLE_PRODUCTOR' } },
+  { path: 'productores/page/:page', component: ProductoresComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' } },
+  { path: 'productores/form', component: ProductoresFormComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' } },
   { path: 'comerciantes', component: ComerciantesComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' } },
   { path: 'proceso-venta', component: ProcesoVentaComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' } },
   { path: 'detalle-proceso', component: ProcesoDeVentaDetailComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'ROLE_ADMIN' } },

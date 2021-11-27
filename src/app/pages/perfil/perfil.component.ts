@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth/auth.service';
 import swal from 'sweetalert2';
+import { Usuario } from '../models/usuario';
 
 @Component({
   selector: 'app-perfil',
@@ -10,8 +12,9 @@ export class PerfilComponent implements OnInit {
 
   private fotoSeleccionada: File;
   progreso: number = 0;
-
-  constructor() { }
+  usuario: Usuario;
+  
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
   }

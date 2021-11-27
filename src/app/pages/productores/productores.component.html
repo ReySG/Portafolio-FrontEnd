@@ -93,7 +93,8 @@
   </div>
 </div> -->
 
-<app-clientes-detail></app-clientes-detail>
+<app-productores-detail *ngIf="productorSeleccionado" [productor]="productorSeleccionado"></app-productores-detail>
+
 <app-sidebar></app-sidebar>
 <br>
 <div class="container col-md-8">
@@ -109,10 +110,13 @@
         </span>
       </div>
     </div>
-
+    <div *ngIf="productores?.length == 0" class="alert alert-info">
+      No hay registros!!
+    
+    </div>
     <div class="card-body">
       <div class="table-responsive">
-        <table class="table table-bordered">
+        <table class="table table-bordered" *ngIf="productores?.length>0">
           <thead>
             <tr class="table-info text-center">
               <th>Id</th>
@@ -128,14 +132,14 @@
           </thead>
           <tbody>
             <tr class="text-center" *ngFor="let productor of productores">
-              <td>{{ productor.id }}</td>
+              <td>{{ productor.idProductor }}</td>
               <td>{{ productor.nombre }}</td>
               <td>{{ productor.apellidoPaterno }}</td>
               <td>{{ productor.email }}</td>
               <td>{{ productor.direccion }}</td>
               <td>{{ productor.numero }}</td>
               <td>
-                <button type="button" name="button" class="btn btn-warning" (click)="abrirModal()">Detalle</button>
+                <button type="button" name="button" class="btn btn-warning" (click)="abrirModal(productor)">Detalle</button>
               </td>
             </tr>
           </tbody>
@@ -144,14 +148,17 @@
     </div>
 
     <div class="botones">
-      <button (click)="ejecutar()" class="btn btn-primary" type="button" name="button" id="button1"[disabled]="loading">
+      <button (click)="actualizarLista()" (click)="ejecutar()" class="btn btn-primary" type="button" name="button" id="button1"[disabled]="loading">
 
         <i [ngClass]="{ 'fa-sync fa-spin':loading }" class="fas"></i>
         <span *ngIf="!loading">Actualizar</span>
         <span *ngIf="loading">Actualizando...</span>
       </button>
 
-      <button class="btn btn-rounded btn-primary" type="button" id="button2">Crear Cliente</button>
+      <button class="btn btn-rounded btn-primary" type="button" id="button2" [routerLink]="['/productores/form']">Crear Cliente</button>
     </div>
+    <app-paginator *ngIf="paginador" [paginador]="paginador" enlacePaginador="productores/page"></app-paginator>
+    
+
   </div>
 </div>

@@ -34,7 +34,7 @@
               <td>{{ usuario.id}}</td>
               <td>{{ usuario.username}}</td>
               <td>{{ usuario.email}}</td>
-              <td><span *ngFor="let k of objectKeys(usuario.roles)">{{ usuario.roles[k].nombre}}</span></td>
+              <td><span *ngFor="let k of objectKeys(usuario.roles)">{{ usuario.roles[k].nombre }}</span></td>
               <td>
                 <button type="button" name="button" class="btn btn-warning"
                   (click)="abrirModal(usuario)">Editar</button>
@@ -46,7 +46,7 @@
       </div>
     </div>
     <div class="botones">
-      <button (click)="ejecutar()" class="btn btn-primary" type="button" name="button" id="button1"
+      <button (click)="ejecutar()" (click)="actualizarLista()" class="btn btn-primary" type="button" name="button" id="button1"
         [disabled]="loading">
         <i [ngClass]="{ 'fa-sync fa-spin':loading }" class="fas"></i>
         <span *ngIf="!loading">Actualizar</span>
@@ -55,7 +55,7 @@
       <button class="btn btn-rounded btn-primary" type="button" id="button2" [routerLink]="['/usuarios/form']">Agregar
         Usuario</button>
     </div>
-    <app-paginator *ngIf="paginador" [paginador]="paginador"></app-paginator>
+    <app-paginator *ngIf="paginador" [paginador]="paginador" enlacePaginador="usuarios/page"></app-paginator>
 
   </div>
 </div>

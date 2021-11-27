@@ -1,0 +1,72 @@
+<app-sidebar></app-sidebar>
+<br>
+<!-- <ul class="alert alert-danger" *ngIf="errores?.length > 0">
+  <li *ngFor="let err of errores">
+    {{ err }}
+  </li>
+</ul> -->
+<div class="container col-md-8">
+  <div class="card text-primary">
+    <div class="card-header">
+      <h3>Registro de Productores</h3>
+    </div>
+    <div class="card-body">
+      <form>
+
+        <div class="form-group row">
+          <label for="nombre" class="col-form-label col-sm-4">Nombre</label>
+          <div class="col-sm-6">
+            <input type="text" placeholder="Nombre de usuario" class="form-control">
+
+
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="apellidoPaterno" class="col-form-label col-sm-4">Peso</label>
+          <div class="col-sm-6">
+            <input type="text" placeholder="Apellido Paterno" class="form-control">
+
+
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="apellidoMaterno" class="col-form-label col-sm-4">Cantidad(kg)</label>
+          <div class="col-sm-6">
+            <input type="text" placeholder="Apellido Materno" class="form-control">
+
+
+          </div>
+        </div>
+
+        <select class="form-select row" id="inputGroupSelect01">
+          <label for="categoria" class="col-form-label col-sm-4">Categoria</label>
+          <option selected>Escoja una categoria</option>
+          <option value="1">Fruta</option>
+          <option value="2">Verdura</option>
+          <option value="3">Frutos secos</option>
+        </select>
+
+      </form>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-6">
+        <button class="btn btn-rounded btn-secondary" type="button" [routerLink]="['/perfil']">Volver</button>
+        <button class="btn btn-primary" type="submit">Crear</button>
+
+      </div>
+    </div>
+
+
+    <hr>
+    <!-- <pre>
+        Estado del formulario: {{ productorForm.valid }}
+        <br>
+        Status: {{ productorForm.status }}
+      </pre>
+    {{ productorForm.value | json }} -->
+
+
+  </div>
+</div>

@@ -2,10 +2,10 @@
   <div class="sidebar">
     <div class="profile">
       <p-avatar icon="pi pi-user" styleClass="p-mr-2" size="xlarge" shape="circle"></p-avatar>
-      <h3>Usuario</h3>
+      <h3> {{ authService.usuario.username }}</h3>
       <i class="pi pi-bell p-mr-2 p-text-secondary" styleClass="p-mr-2" pBadge style="font-size: 2rem" value="2"></i>
       <a href="/perfil">
-        <p>Administrador</p>
+        <p> {{authService.usuario.roles }} </p>
       </a>
     </div>
     <ul>
@@ -37,7 +37,7 @@
           <span class="icon"><i class="fas fa-file-invoice"></i></span>
           <span class="item">Procesos de venta</span>
         </a></li>
-      <li><a href="#" *ngIf="authService.hasRole('ROLE_PRODUCTOR')">
+      <li><a routerLink="/productos" *ngIf="authService.hasRole('ROLE_PRODUCTOR')">
           <span class="item">Productos</span>
         </a></li>
       <li><a routerLink="/solicitud" *ngIf="authService.hasRole('ROLE_CLIENTE_EXTERNO')">

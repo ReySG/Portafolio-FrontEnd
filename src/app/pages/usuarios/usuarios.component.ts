@@ -24,13 +24,18 @@ export class UsuariosComponent implements OnInit {
   registerForm: FormGroup;
   items: MenuItem[];
 
-
   constructor(private activatedRoute: ActivatedRoute, private usuarioService: UsuariosService, private modalService: ModalService,
     private formBuilder: FormBuilder) {
 
   }
 
   ngOnInit(): void {
+    this.actualizarLista();
+
+
+  }
+
+  actualizarLista() {
     this.activatedRoute.paramMap.subscribe(params => {
       let page: number = +params.get('page');
       if (!page) {
@@ -48,24 +53,13 @@ export class UsuariosComponent implements OnInit {
         });
 
     });
-    this.items = [
-      { label: 'Home', icon: 'pi pi-fw pi-home' },
-      { label: 'Calendar', icon: 'pi pi-fw pi-calendar' },
-      { label: 'Edit', icon: 'pi pi-fw pi-pencil' },
-      { label: 'Documentation', icon: 'pi pi-fw pi-file' },
-      { label: 'Settings', icon: 'pi pi-fw pi-cog' }
-    ];
-
 
 
   }
-
-
 
   objectKeys(obj) {
     return Object.keys(obj);
   }
-
 
   ejecutar() {
     this.loading = true;
@@ -78,41 +72,7 @@ export class UsuariosComponent implements OnInit {
     this.modalService.abrirModal();
   }
 
-  Delete(usuario: Usuario): void {
-    const swalWithBootstrapButtons = swal.mixin({
-      customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
-      },
-      buttonsStyling: false
-    })
-    swalWithBootstrapButtons.fire({
-      title: 'Está seguro?',
-      text: `¿Seguro que desea eliminar al cliente ${usuario.username} ?`,
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Si, eliminar!',
-      cancelButtonText: 'No, Cancelar!',
-      reverseButtons: true
-    }).then((result) => {
-      if (result.value) {
-        this.usuarioService.delete(usuario.id).subscribe(
-          response => {
-            this.usuarios = this.usuarios.filter(user => user !== usuario)
-            swalWithBootstrapButtons.fire(
-              'Usuario Eliminado!',
-              `Usuario  ${usuario.username} eliminado con éxito.`,
-              'success'
-            )
-          }
-        )
-
-      }
-
-    })
-
-
-  }
+  
 
 
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Usuario } from '../models/usuario';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import swal from 'sweetalert2';
 import {MenuItem} from 'primeng/api';
 
@@ -14,7 +14,8 @@ export class SidebarComponent implements OnInit {
 
   usuario:Usuario;
 
-  constructor(public authService:AuthService,  private router: Router) { }
+
+  constructor(public authService:AuthService,  private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
   }

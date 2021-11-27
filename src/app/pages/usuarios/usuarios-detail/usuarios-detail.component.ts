@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModalService } from '../../clientes/modal.service';
 import { Role } from '../../models/role';
 import { Usuario } from '../../models/usuario';
 import { UsuariosService } from '../usuarios.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuarios-detail',
@@ -14,12 +15,17 @@ import { UsuariosService } from '../usuarios.service';
 export class UsuariosDetailComponent implements OnInit {
 
   @Input() usuario: Usuario;
+  public newUsuario: Usuario = new Usuario()
+
   progreso: number = 0;
-  seleccionados: string[] = [];
+  seleccionados: any[];
   roles: Role[];
+  errores: string[];
+  registerForm: FormGroup;
+
 
   constructor(public modalService: ModalService, private activatedRoute: ActivatedRoute,
-    private usuarioService: UsuariosService, private formBuilder: FormBuilder) { }
+    private usuarioService: UsuariosService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.usuarioService
@@ -27,15 +33,18 @@ export class UsuariosDetailComponent implements OnInit {
       .subscribe((data: any) => {
         this.roles = data;
       });
-      this.usuario.roles.map((role) => {
-        this.seleccionados.push(role);
-      })
-  }
-
-  onSubmit() {
-
 
   }
+
+
+
+  // onChange(e) {
+  //   console.log(e);
+  //   this.seleccionados.push(e.itemValue.name);
+
+  //   console.log(this.seleccionados);
+  // }
+
 
   objectKeys(obj) {
     return Object.keys(obj);
@@ -44,18 +53,86 @@ export class UsuariosDetailComponent implements OnInit {
   cerrarModal() {
     this.modalService.cerrarModal();
     this.progreso = 0;
-    console.log("Usuario seleccionado: ", this.usuario);
-    console.log("rol seleccionado: ", this.seleccionados);
+    console.log("rol actualizado", this.usuario.roles);
+
 
 
   }
 
-  compararRole(o1: Role, o2: Role): boolean {
-    if (o1 === undefined && o2 === undefined) {
-      return true;
-    }
+  update(): void {
 
-    return o1 === null || o2 === null || o1 === undefined || o2 === undefined ? false : o1.id === o2.id;
+    
+
+    this.usuario.roles.splice(0, this.usuario.roles.length)
+    console.log("seleccionados: ", this.seleccionados);
+
+    this.usuario.roles.push(...this.seleccionados)
+  
+    
+    console.log("Usuario actualizado: ", this.usuario);
+
+    // this.usuarioService.update(this.usuario)
+    //   .subscribe(json => {
+    //     this.router.navigate(['/usuarios'])
+    //     swal.fire('Usuario Actualizado', `${json.mensaje}: ${json.usuario.nombre}`, 'success')
+    //   },
+    //     err => {
+    //       this.errores = err.error.errors as string[];
+    //       console.error('Codigo del error desde el backend: ' + err.status);
+    //       console.error(err.error.errors);
+    //     }
+    //   )
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  deleteUsuario(usuario: Usuario): void {
+    const swalWithBootstrapButtons = swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+    swalWithBootstrapButtons.fire({
+      title: 'Está seguro?',
+      text: `¿Seguro que desea eliminar al cliente ${usuario.username} ?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, eliminar!',
+      cancelButtonText: 'No, Cancelar!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
+        this.cerrarModal();
+        this.router.navigate(['/usuarios'])
+        this.usuarioService.delete(usuario.id).subscribe(
+          response => {
+            this.usuario = this.usuario
+            swalWithBootstrapButtons.fire(
+              'Usuario Eliminado!',
+              `Usuario  ${usuario.username} eliminado con éxito.`,
+              'success'
+            )
+          }
+        )
+
+      }
+
+    })
+
+
+  }
+
 
 }

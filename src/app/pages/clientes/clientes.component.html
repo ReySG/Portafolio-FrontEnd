@@ -1,5 +1,4 @@
-
-<app-clientes-detail></app-clientes-detail>
+<app-clientes-detail *ngIf="clienteSeleccionado" [cliente]="clienteSeleccionado"></app-clientes-detail>
 <app-sidebar></app-sidebar>
 <br>
 <div class="container col-md-8">
@@ -21,71 +20,34 @@
           <thead>
             <tr class="table-info text-center">
               <th>Id</th>
-              <th>das</th>
               <th>Nombre</th>
               <th>Apellido</th>
-              <th>Email</th>
-              <th>Fecha creacion</th>
-              <th>Direccion</th>
-   
+              <th>Empresa</th>
               <th>
                 acciones
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr class="text-center">
-              <td>1</td>
-              <p-avatar icon="pi pi-user" styleClass="p-mr-2" size="xlarge"></p-avatar>
-              <td>Pedro</td>
-              <td>Esponja</td>
-              <td>email</td>
-              <td>Fecha</td>
-              <td>Direccion</td>
-        
+            <tr class="text-center" *ngFor="let cliente of clientes">
+              <td>{{ cliente.idCliente }}</td>
+              <td>{{ cliente.nombre }}</td>
+              <td>{{ cliente.apellidoP }}</td>
+              <td>{{ cliente.empresa }}</td>
               <td>
-                <button type="button" name="button" class="btn btn-warning" (click)="abrirModal()">Detalle</button>
+                <button type="button" name="button" class="btn btn-warning"
+                  (click)="abrirModal(cliente)">Detalle</button>
               </td>
             </tr>
           </tbody>
-          <tbody>
-            <tr class="text-center">
-              <td>2</td>
-              <p-avatar icon="pi pi-user" styleClass="p-mr-2" size="xlarge"></p-avatar>
 
-              <td>Juan</td>
-              <td>Mohammed</td>
-              <td>email</td>
-              <td>Fecha</td>
-              <td>Direccion</td>
-         
-              <td>
-                <button type="button" name="button" class="btn btn-warning" (click)="abrirModal()">Detalle</button>
-              </td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr class="text-center">
-              <td>3</td>
-              <p-avatar icon="pi pi-user" styleClass="p-mr-2" size="xlarge"></p-avatar>
-
-              <td>Diego</td>
-              <td>Poppy</td>
-              <td>email</td>
-              <td>Fecha</td>
-              <td>Direccion</td>
-       
-              <td>
-                <button type="button" name="button" class="btn btn-warning" (click)="abrirModal()">Detalle</button>
-              </td>
-            </tr>
-          </tbody>
         </table>
       </div>
     </div>
 
     <div class="botones">
-      <button (click)="ejecutar()" class="btn btn-primary" type="button" name="button" id="button1"[disabled]="loading">
+      <button (click)="ejecutar()" (click)="actualizarLista() " class="btn btn-primary" type="button" name="button" id="button1"
+        [disabled]="loading">
 
         <i [ngClass]="{ 'fa-sync fa-spin':loading }" class="fas"></i>
         <span *ngIf="!loading">Actualizar</span>
@@ -94,5 +56,8 @@
 
       <button class="btn btn-rounded btn-primary" type="button" id="button2">Crear Cliente</button>
     </div>
+
+    <!-- <paginator-nav *ngIf="paginador" [paginador] = "paginador" [enlacePaginador]="['/clientes/page']" ></paginator-nav> -->
+
   </div>
 </div>

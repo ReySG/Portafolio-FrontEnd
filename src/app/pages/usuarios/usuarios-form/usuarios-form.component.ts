@@ -102,6 +102,7 @@ export class UsuariosFormComponent implements OnInit {
     // const rols = new FormArray([this.roles.forEach( x =>  new FormControl())])
     // console.log(this.selectedRoles);
     console.log(this.usuario);
+    console.log(this.roles);
     this.usuarioService.create(this.usuario)
       .subscribe(
         usuario => {

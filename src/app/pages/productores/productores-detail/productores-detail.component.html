@@ -45,13 +45,12 @@
     </div>
   </div>
 </div> -->
-<app-detalle-ventas></app-detalle-ventas>
 <div class="abrir-modal animacion fadeIn" *ngIf="modalService.modal">
   <div class="modal" tabindex="-1" role="dialog" style="display:block;">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Detalle Cliente</h5>
+          <h5 class="modal-title">Detalle Productor</h5>
           <button (click)="cerrarModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -59,49 +58,39 @@
         <div class="modal-body">
           <div class="container">
 
-            <form #clienteForm="ngForm">
+            <form #productorForm="ngForm">
+
               <div class="form-group">
                 <label for="exampleFormControlInput1">Nombre</label>
                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nombre"
-                  [(ngModel)]="cliente.nombre" #nombre="ngModel" name="nombre">
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">Rut</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Rut"
-                  [(ngModel)]="cliente.rut" #rut="ngModel" name="rut">
+                  [(ngModel)]="productor.nombre" #nombre="ngModel" name="nombre">
               </div>
               <div class="form-group">
                 <label for="exampleFormControlInput1">Apellido Paterno</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Apellido Paterno"
-                  [(ngModel)]="cliente.apellidoP" #apellidoP="ngModel" name="apellidoPaterno">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="nombre"
+                  [(ngModel)]="productor.apellidoPaterno" #apellidoPaterno="ngModel" name="apellidoPaterno">
               </div>
 
               <div class="form-group">
                 <label for="exampleFormControlInput1">Apellido Materno</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="apellido Materno"
-                  [(ngModel)]="cliente.apellidoM" #apellidoM="ngModel" name="apellidoMaterno">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="apellidoMaterno"
+                  [(ngModel)]="productor.apellidoMaterno" #apellidoMaterno="ngModel" name="apellidoMaterno">
               </div>
               <div class="form-group">
                 <label for="exampleFormControlInput1">Email</label>
                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email"
-                  [(ngModel)]="cliente.email" #email="ngModel" name="email">
+                  [(ngModel)]="productor.email" #email="ngModel" name="email">
               </div>
               <div class="form-group">
                 <label for="exampleFormControlInput1">Direccion</label>
                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="direccion"
-                  [(ngModel)]="cliente.direccion" #direccion="ngModel" name="direccion">
+                  [(ngModel)]="productor.direccion" #direccion="ngModel" name="direccion">
               </div>
               <div class="form-group">
                 <label for="exampleFormControlInput1">Numero</label>
                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="numero"
-                  [(ngModel)]="cliente.numero" #numero="ngModel" name="numero">
+                  [(ngModel)]="productor.numero" #numero="ngModel" name="numero">
               </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">empresa</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="empresa"
-                  [(ngModel)]="cliente.empresa" #empresa="ngModel" name="empresa">
-              </div>
-
             </form>
           </div>
         </div>
@@ -109,7 +98,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" (click)="update()">Editar</button>
           <button type="button" name="eliminar" class="btn btn-danger" style="margin-left: 10px;"
-          (click)='deleteCliente(cliente)'>Eliminar Cliente</button>
+            (click)='deleteProductor(productor)'>Eliminar Cliente</button>
           <button (click)="cerrarModal()" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         </div>
       </div>

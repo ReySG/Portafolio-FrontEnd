@@ -48,6 +48,10 @@ import { ToolbarModule } from 'primeng/toolbar';
 import {ButtonModule} from 'primeng/button';
 import { SplitButtonModule } from 'primeng/splitbutton';
 
+import { ProductoresFormComponent } from './pages/productores/productores-form/productores-form.component';
+import { ProductoresDetailComponent } from './pages/productores/productores-detail/productores-detail.component';
+import { ProductosFormComponent } from './pages/productores/productos-form/productos-form.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +79,9 @@ import { SplitButtonModule } from 'primeng/splitbutton';
     ProcesoVentaFormComponent,
     ProcesoDeVentaDetailComponent,
     SolicitudListComponent,
+    ProductoresFormComponent,
+    ProductoresDetailComponent,
+    ProductosFormComponent,
 
   ],
   imports: [

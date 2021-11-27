@@ -11,8 +11,9 @@
 }
 
 .container {
- 
+  width: 100%;
   padding-left: 10%;
+  position: fixed;
   transition: margin-left .5s;
 }
 

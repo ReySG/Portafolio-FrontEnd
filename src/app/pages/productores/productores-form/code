@@ -1,0 +1,107 @@
+<app-sidebar></app-sidebar>
+<br>
+<ul class="alert alert-danger" *ngIf="errores?.length > 0">
+  <li *ngFor="let err of errores">
+    {{ err }}
+  </li>
+</ul>
+<div class="container col-md-8">
+  <div class="card text-primary">
+    <div class="card-header">
+      <h3>Registro de Productores</h3>
+    </div>
+    <div class="card-body">
+      <form #productorForm="ngForm">
+
+        <div class="form-group row">
+          <label for="nombre" class="col-form-label col-sm-4">Nombre</label>
+          <div class="col-sm-6">
+            <input type="text" placeholder="Nombre de usuario" [(ngModel)]="productor.nombre" name="nombre"
+              #nombre="ngModel" class="form-control"  [class.is-invalid]="nombreNotValid">
+            <small class="text-danger" *ngIf="nombreNotValid">
+              Ingrese nombre de usuario
+            </small>
+
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="apellidoPaterno" class="col-form-label col-sm-4">Apellido Paterno</label>
+          <div class="col-sm-6">
+            <input type="text" placeholder="Apellido Paterno" [(ngModel)]="productor.apellidoPaterno"
+              name="apellidoPaterno" #apellidoPaterno="ngModel" class="form-control" 
+              [class.is-invalid]="apellidoPaternoNotValid">
+            <small class="text-danger" *ngIf="apellidoPaternoNotValid">
+              Ingrese apellido paterno
+            </small>
+
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="apellidoMaterno" class="col-form-label col-sm-4">Apellido Materno</label>
+          <div class="col-sm-6">
+            <input type="text" placeholder="Apellido Materno" [(ngModel)]="productor.apellidoMaterno"
+              name="apellidoMaterno" #apellidoMaterno="ngModel" class="form-control" 
+              [class.is-invalid]="apellidoMaternoNotValid">
+            <small class="text-danger" *ngIf="apellidoMaternoNotValid">
+              Ingrese apellido materno
+            </small>
+
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="email" class="col-form-label col-sm-4">Email</label>
+          <div class="col-sm-6">
+            <input type="text" placeholder="Email" class="form-control" [(ngModel)]="productor.email" name="email"
+              #email="ngModel" [class.is-invalid]="emailNotValid">
+            <small class="text-danger" *ngIf="emailNotValid">
+              Ingrese correo electronico valido
+            </small>
+
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="direccion" class="col-form-label col-sm-4">Direccion</label>
+          <div class="col-sm-6">
+            <input type="text" placeholder="Direccion" class="form-control" [(ngModel)]="productor.direccion"
+              name="direccion" #direccion="ngModel"  [class.is-invalid]="direccionNotValid">
+            <small class="text-danger" *ngIf="direccionNotValid">
+              Ingrese su direccion
+            </small>
+
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="numero" class="col-form-label col-sm-4">Numero</label>
+          <div class="col-sm-6">
+            <input type="text" placeholder="Numero" class="form-control" [(ngModel)]="productor.numero" name="numero"
+              #numero="ngModel"  [class.is-invalid]="numeroNotValid">
+            <small class="text-danger" *ngIf="numeroNotValid">
+              Ingrese su numero
+            </small>
+
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <button class="btn btn-rounded btn-secondary" type="button" [routerLink]="['/productores']">Volver</button>
+            <button class="btn btn-primary" (click)='create()'>Crear</button>
+
+          </div>
+        </div>
+
+      </form>
+
+      <hr>
+      <pre>
+        Estado del formulario: {{ registerForm.valid }}
+        <br>
+        Status: {{ registerForm.status }}
+      </pre>
+      {{ registerForm.value | json }}
+
+
+    </div>
+  </div>
+</div>
