@@ -14,3 +14,7 @@
 p-tabMenu {
   margin: 5px;
 }
+
+app-paginator {
+  padding-left: 15px;
+}

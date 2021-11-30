@@ -4,7 +4,7 @@
       <p-avatar icon="pi pi-user" styleClass="p-mr-2" size="xlarge" shape="circle"></p-avatar>
       <h3> {{ authService.usuario.username }}</h3>
       <i class="pi pi-bell p-mr-2 p-text-secondary" styleClass="p-mr-2" pBadge style="font-size: 2rem" value="2"></i>
-      <a href="/perfil">
+      <a routerLink="/perfil">
         <p> {{authService.usuario.roles }} </p>
       </a>
     </div>
@@ -21,10 +21,10 @@
           <span class="icon"><i class="fas fa-users"></i></span>
           <span class="item">Clientes</span>
         </a></li>
-      <li><a routerLink="/comerciantes" *ngIf="authService.hasRole('ROLE_ADMIN')">
+      <!-- <li><a routerLink="/comerciantes" *ngIf="authService.hasRole('ROLE_ADMIN')">
           <span class="icon"><i class="fas fa-handshake"></i></span>
           <span class="item">Comerciantes</span>
-        </a></li>
+        </a></li> -->
       <li><a routerLink="/usuarios" *ngIf="authService.hasRole('ROLE_ADMIN')">
           <span class="icon"><i class="fas fa-user"></i></span>
           <span class="item">Usuarios</span>
