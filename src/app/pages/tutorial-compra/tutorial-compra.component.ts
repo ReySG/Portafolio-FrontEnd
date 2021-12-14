@@ -42,3 +42,8 @@ export class TutorialCompraComponent implements OnInit {
   }
 
 }
+
+
+
+
+

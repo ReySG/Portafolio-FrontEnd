@@ -37,11 +37,17 @@
           <span class="icon"><i class="fas fa-file-invoice"></i></span>
           <span class="item">Procesos de venta</span>
         </a></li>
-      <li><a routerLink="/productos" *ngIf="authService.hasRole('ROLE_PRODUCTOR')">
-          <span class="item">Productos</span>
+      <li><a routerLink="/productor-info-update" *ngIf="authService.hasRole('ROLE_PRODUCTOR')">
+          <span class="item">Registrar Productos</span>
         </a></li>
-      <li><a routerLink="/solicitud" *ngIf="authService.hasRole('ROLE_CLIENTE_EXTERNO')">
+      <li><a routerLink="/perfil" *ngIf="authService.hasRole('ROLE_PRODUCTOR')">
+          <span class="item">Vender Productos</span>
+        </a></li>
+      <li><a routerLink="/info-update" *ngIf="authService.hasRole('ROLE_CLIENTE_EXTERNO')">
           <span class="item">Crear Solicitud</span>
+        </a></li>
+      <li><a routerLink="/mis-solicitudes" *ngIf="authService.hasRole('ROLE_CLIENTE_EXTERNO')">
+          <span class="item">Mis solicitudes</span>
         </a></li>
       <button (click)="logout()" class="dropdown-item" type="submit">Log Out</button>
     </ul>

@@ -10,10 +10,15 @@
   
 }
 
+.card {
+  min-height: 600px;
+}
+
+
 app-paginator {
   padding-left: 15px;
 }
-
+ 
 .container {
   width: 100%;
   padding-left: 10%;

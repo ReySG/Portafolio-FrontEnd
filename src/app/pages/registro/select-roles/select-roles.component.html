@@ -1,0 +1,109 @@
+<!-- <a class="navbar-brand" href="index.html">
+  <span>Feria Virtual</span>
+</a>
+
+<div class="container">
+  <div class="card ">
+    <div class="card-header">
+        <h3>Seleccione tipo de cuenta</h3>
+      </div>
+    <div class="card-body">
+
+      <div class="row text-center">
+        <div class="col">
+          <button pButton pRipple type="button" label="Cliente Externo" class="p-button-raised p-button-warning"
+            style="width: 200px;"></button>
+
+        </div>
+        <div class="col">
+          <button pButton pRipple type="button" label="Productor" class="p-button-raised p-button-help"
+            style="width: 200px;"></button>
+
+        </div>
+        <div class="col">
+          <button pButton pRipple type="button" label="Transportista" class="p-button-raised p-button-primary"
+            style="width: 200px;"></button>
+        </div>
+        <div class="col">
+          <button pButton pRipple type="button" label="Comerciante" class="p-button-raised p-button-success"
+            style="width: 200px;"></button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div> -->
+<a class="navbar-brand" href="index.html">
+  <span>Feria Virtual</span>
+</a>
+
+<div class="container">
+  <div>
+    <h3>Seleccione tipo de cuenta</h3>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col ">
+        <a [routerLink]="['/registro-cliente']" routerLinkActive="router-link-active" >
+          <img src="../../../../assets/images/target.png" class="card-img-top" alt="">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">Cliente Externo</h5>
+          <p class="card-text">Si eres un cliente desde el extranjero crea tu cuenta aqui.</p>
+          <!-- <button pButton pRipple type="button" label="Registrarse" class="p-button-raised"
+            style="width: 200px;"></button> -->
+          <!-- <p-radioButton name="groupname" value="val1" [(ngModel)]="selectedValue"></p-radioButton> -->
+        </div>
+
+      </div>
+
+      <div class="col">
+        <a href="/perfil">
+          <img src="../../../../assets\images/delivery-truck.png" class="card-img-top" alt="..." id="camion">
+        </a>
+
+        <div class="card-body">
+          <h5 class="card-title">Tranportista</h5>
+          <p class="card-text">Si posees una flota de vehiculos de carga crea tu cuenta aqui.</p>
+          <!-- <button pButton pRipple type="button" label="Registrarse" class="p-button-raised p-button-warning"
+            style="width: 200px;"></button> -->
+          <!-- <p-radioButton name="groupname" value="val2" [(ngModel)]="selectedValue" ></p-radioButton> -->
+        </div>
+
+      </div>
+
+      <div class="col">
+        <a href="/perfil">
+          <img src="../../../../assets\images/businessman.png" class="card-img-top" alt="...">
+        </a>
+
+        <div class="card-body">
+          <h5 class="card-title">Comerciante</h5>
+          <p class="card-text">Si deseas hacer una compra local registrate aqui.</p>
+          <!-- <button pButton pRipple type="button" label="Registrarse" class="p-button-raised p-button-secondary"
+            style="width: 200px;"></button> -->
+          <!-- <p-radioButton name="groupname" value="val3" [(ngModel)]="selectedValue"></p-radioButton> -->
+        </div>
+        <!--  -->
+      </div>
+
+      <div class="col">
+        <a href="/perfil">
+          <img src="../../../../assets\images/farmer.png" class="card-img-top" alt="...">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">Productor</h5>
+          <p class="card-text">Si deseas vender tus productos registrar aca.</p>
+          <!-- <button pButton pRipple type="button" label="Registrarse" class="p-button-raised p-button-success"
+            style="width: 200px;"></button> -->
+          <!-- <p-radioButton name="groupname" value="val4" [(ngModel)]="selectedValue" styleClass="radio-button"></p-radioButton> -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

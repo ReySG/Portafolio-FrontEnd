@@ -15,3 +15,8 @@ app-paginator {
   width: auto;
 
 }
+
+.card {
+  min-height: 600px;
+}
+

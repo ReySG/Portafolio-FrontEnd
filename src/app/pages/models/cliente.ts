@@ -1,3 +1,6 @@
+import { SolicitudCompra } from "./solicitudCompra";
+import { Usuario } from "./usuario";
+
 export class Cliente {
     idCliente: number;
     rut: string;
@@ -8,7 +11,8 @@ export class Cliente {
     direccion: string;
     numero: number;
     empresa: string;
-    
+    usuario: Usuario;
+    solicitudes: SolicitudCompra[] = [];
 
 
 }

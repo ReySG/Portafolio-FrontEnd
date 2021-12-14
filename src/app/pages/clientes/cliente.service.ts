@@ -11,6 +11,7 @@ import { Cliente } from '../models/cliente';
 export class ClienteService {
 
   private urlEndPoint: string = 'http://localhost:8034/api/cliente';
+  private urlClientePorUsuario: string = 'http://localhost:8034/api/cliente/usuario';
 
 
 
@@ -25,6 +26,17 @@ export class ClienteService {
     return this.http.delete<Cliente>(`${this.urlEndPoint}/${id}`).pipe(
       catchError(e => {
         if (e.error.mensaje) {
+          console.log(e.error.mensaje);
+        }
+        return throwError(e);
+      })
+    );
+  }
+  getClientePorUsuarioId(id): Observable<Cliente> {
+    return this.http.get<Cliente>(`${this.urlClientePorUsuario}/${id}`).pipe(
+      catchError(e => {
+        if (e.status != 401 && e.error.mensaje) {
+          this.router.navigate(['/clientes']);
           console.log(e.error.mensaje);
         }
         return throwError(e);

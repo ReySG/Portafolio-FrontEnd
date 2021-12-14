@@ -1,55 +1,42 @@
-<app-sidebar></app-sidebar>
+<!-- <app-sidebar></app-sidebar>
 <br>
+<ul class="alert alert-danger" *ngIf="errores?.length > 0">
+  <li *ngFor="let err of errores">
+    {{ err }}
+  </li>
+</ul>
+
 <div class="container col-md-8">
   <div class="card text-primary">
     <div class="card-header">
       <h3>Crear Solicitud de pedido</h3>
     </div>
     <div class="card-body">
-      <form>
+      <form [formGroup]="solicitudCompraForm" (ngSubmit)="onSubmit()">
 
-        <div class="form-group row">
-          <label for="username" class="col-form-label col-sm-2">Usuario</label>
+        <div class="form-group row" >
+          <label for="username" class="col-form-label col-sm-2">Cliente</label>
           <div class="col-sm-6">
-            <input type="text" placeholder="Nombre de usuario" class="form-control">
-            <small class="text-danger">
-              Ingrese nombre de usuario
+            <input type="text" placeholder="Cliente" class="form-control" formControlName="cliente">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="username" class="col-form-label col-sm-2">Producto</label>
+          <div class="col-sm-6">
+            <input type="text" placeholder="Nombre de usuario" class="form-control" formControlName="pedido"
+              [class.is-invalid]="pedidoNotValid" >
+            <small class="text-danger" *ngIf="pedidoNotValid">
+              Ingrese nombre del producto a solicitar
             </small>
           </div>
         </div>
         <div class="form-group row">
-          <label for="username" class="col-form-label col-sm-2">Usuario</label>
+          <label for="username" class="col-form-label col-sm-2">Cantidad(kg)</label>
           <div class="col-sm-6">
-            <input type="text" placeholder="Nombre de usuario" class="form-control">
-            <small class="text-danger">
-              Ingrese nombre de usuario
-            </small>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="username" class="col-form-label col-sm-2">Usuario</label>
-          <div class="col-sm-6">
-            <input type="text" placeholder="Nombre de usuario" class="form-control">
-            <small class="text-danger">
-              Ingrese nombre de usuario
-            </small>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="username" class="col-form-label col-sm-2">Usuario</label>
-          <div class="col-sm-6">
-            <input type="text" placeholder="Nombre de usuario" class="form-control">
-            <small class="text-danger">
-              Ingrese nombre de usuario
-            </small>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="username" class="col-form-label col-sm-2">Usuario</label>
-          <div class="col-sm-6">
-            <input type="text" placeholder="Nombre de usuario" class="form-control">
-            <small class="text-danger">
-              Ingrese nombre de usuario
+            <input type="number" placeholder="Nombre de usuario" class="form-control" formControlName="cantidad"
+              [class.is-invalid]="cantidadNotValid">
+            <small class="text-danger" *ngIf="cantidadNotValid">
+              Ingrese cantidad del producto(kg)
             </small>
           </div>
         </div>
@@ -57,12 +44,76 @@
           <div class="col-sm-6">
             <button class="btn btn-rounded btn-secondary" type="button">Volver</button>
             <button class="btn btn-primary" type="submit">Crear</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+    <hr>
+    <pre>
+        Estado del formulario: {{ solicitudCompraForm.valid }}
+        <br>
+        Status: {{ solicitudCompraForm.status }}
+      </pre>
+    {{ solicitudCompraForm.value | json }}
+  </div>
+</div> -->
+
+
+<app-sidebar></app-sidebar>
+<br>
+<ul class="alert alert-danger" *ngIf="errores?.length > 0">
+  <li *ngFor="let err of errores">
+    {{ err }}
+  </li>
+</ul>
+
+<div class="container col-md-8">
+  <div class="card text-primary">
+    <div class="card-header">
+      <h3>Crear Solicitud de pedido</h3>
+    </div>
+    <div class="card-body">
+      <form #solicitudCompraForm="ngForm">
+
+        <div class="form-group row" *ngIf="solicitudCompra.cliente">
+          <label for="username" class="col-form-label col-sm-2">Cliente</label>
+          <div class="col-sm-6">
+            <input type="text" placeholder="cliente" class="form-control" value="{{solicitudCompra.cliente.nombre}}" disabled>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="username" class="col-form-label col-sm-2">Producto</label>
+          <div class="col-sm-6">
+            <input type="text" placeholder="Nombre de usuario" class="form-control" [(ngModel)]="solicitudCompra.pedido"
+              #pedido="ngModel" name="pedido">
 
           </div>
         </div>
-
+        <div class="form-group row">
+          <label for="username" class="col-form-label col-sm-2">Cantidad(kg)</label>
+          <div class="col-sm-6">
+            <input type="number" placeholder="Nombre de usuario" class="form-control" [(ngModel)]="solicitudCompra.cantidad"
+              #cantidad="ngModel" name="cantidad">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <button class="btn btn-rounded btn-secondary" type="button">Volver</button>
+            <button class="btn btn-primary" type="button" (click)="create()">Crear</button>
+          </div>
+        </div>
       </form>
-
     </div>
+
+
+    <hr>
+    <pre>
+        Estado del formulario: {{ solicitudCompraForm.valid }}
+        <br>
+        Status: {{ solicitudCompraForm.status }}
+      </pre>
+    {{ solicitudCompraForm.value | json }}
   </div>
-</div>
+</div> 

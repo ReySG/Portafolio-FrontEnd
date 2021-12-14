@@ -1,6 +1,8 @@
 .container {
   padding-left: 10%;
   width: 100%;
+  position: fixed;
+
 }
 
 #button1,
@@ -17,4 +19,8 @@ p-tabMenu {
 
 app-paginator {
   padding-left: 15px;
+}
+
+.card {
+  min-height: 600px;
 }

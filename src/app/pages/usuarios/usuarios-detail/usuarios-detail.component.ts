@@ -61,14 +61,14 @@ export class UsuariosDetailComponent implements OnInit {
 
   update(): void {
 
-    
+
 
     this.usuario.roles.splice(0, this.usuario.roles.length)
     console.log("seleccionados: ", this.seleccionados);
 
     this.usuario.roles.push(...this.seleccionados)
-  
-    
+
+
     console.log("Usuario actualizado: ", this.usuario);
 
     // this.usuarioService.update(this.usuario)
@@ -83,16 +83,6 @@ export class UsuariosDetailComponent implements OnInit {
     //     }
     //   )
   }
-
-
-
-
-
-
-
-
-
-
 
 
 

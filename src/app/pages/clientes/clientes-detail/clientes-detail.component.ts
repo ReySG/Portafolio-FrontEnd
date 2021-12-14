@@ -31,7 +31,7 @@ export class ClientesDetailComponent implements OnInit {
     this.clienteService.update(this.cliente)
       .subscribe(json => {
         this.router.navigate(['/clientes'])
-        Swal.fire('Productor Actualizado', `El productor ${this.cliente.nombre} ha sido actualizado exitosamente`, 'success')
+        Swal.fire('Cliente Actualizado', `El cliente ${this.cliente.nombre} ha sido actualizado exitosamente`, 'success')
         this.cerrarModal();
       },
         err => {

@@ -14,8 +14,11 @@ import { Role } from '../models/role';
 export class UsuariosService {
 
   private urlEndPoint: string = 'http://localhost:8034/api/usuarios';
+  private urlRegistrarCliente: string = 'http://localhost:8034/api/usuario-cliente';
   private urlEndPointRoles:string = 'http://localhost:8034/api/roles'
-
+  private urlEndPoin:string = 'http://localhost:8034/api/update-cliente/'
+  private urlUpdateProductor:string = 'http://localhost:8034/api/update-productor'
+  
 
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -70,6 +73,21 @@ export class UsuariosService {
     );
   }
 
+  registrarUsuarioCliente(usuario:Usuario) : Observable<Usuario>{
+    return this.http.post(this.urlRegistrarCliente,usuario).pipe(
+      map((response: any) => response.usuario as Usuario),
+      catchError(e => {
+        if (e.status == 400){
+          return throwError(e)
+        }
+        if(e.error.mensaje){
+        console.error(e.error.mensaje);
+       }
+        return throwError(e);
+      })
+    );
+  }
+
   create(usuario:Usuario) : Observable<Usuario>{
     return this.http.post(this.urlEndPoint,usuario, ).pipe(
       map((response: any) => response.usuario as Usuario),
@@ -88,6 +106,32 @@ export class UsuariosService {
 
   update(usuario: Usuario): Observable<any>{
     return this.http.put<any>(`${this.urlEndPoint}/${usuario.id}`, usuario).pipe(
+      catchError(e => {
+        if (e.status == 400){
+          return throwError(e)
+        }
+        if(e.error.mensaje){
+        console.error(e.error.mensaje);
+       }
+        return throwError(e);
+      })
+    );
+  }
+  updateUsuarioCliente(usuario: Usuario): Observable<any>{
+    return this.http.put<any>(`${this.urlEndPoint}/${usuario.id}`, usuario).pipe(
+      catchError(e => {
+        if (e.status == 400){
+          return throwError(e)
+        }
+        if(e.error.mensaje){
+        console.error(e.error.mensaje);
+       }
+        return throwError(e);
+      })
+    );
+  }
+  updateProductor(usuario: Usuario): Observable<any>{
+    return this.http.put<any>(`${this.urlUpdateProductor}/${usuario.id}`, usuario).pipe(
       catchError(e => {
         if (e.status == 400){
           return throwError(e)

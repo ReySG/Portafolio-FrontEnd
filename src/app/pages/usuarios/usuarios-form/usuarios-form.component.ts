@@ -74,7 +74,8 @@ export class UsuariosFormComponent implements OnInit {
       .filter(v => v !== null);
 
     console.log("rol seleccionado:", selectedRoles)
-
+    
+    this.usuario.roles = selectedRoles;
     this.usuario = new Usuario();
     this.usuario = this.data;
     
@@ -107,7 +108,7 @@ export class UsuariosFormComponent implements OnInit {
       .subscribe(
         usuario => {
           this.router.navigate(['/usuarios']);
-          swal.fire('Nuevo cliente', `El cliente ${usuario.username} ha sido creado con éxito`, 'success');
+          swal.fire('Nuevo Usuario', `El usuario ${usuario.username} ha sido creado con éxito`, 'success');
         },
         err => {
           this.errores = err.error.errors as string[];

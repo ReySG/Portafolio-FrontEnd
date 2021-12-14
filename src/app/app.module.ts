@@ -30,27 +30,36 @@ import { OrderListModule } from 'primeng/orderlist';
 import { TimelineModule } from 'primeng/timeline';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
-import {BadgeModule} from 'primeng/badge';
-import {MenubarModule} from 'primeng/menubar';
-import {TabMenuModule} from 'primeng/tabmenu';
+import { BadgeModule } from 'primeng/badge';
+import { MenubarModule } from 'primeng/menubar';
+import { TabMenuModule } from 'primeng/tabmenu';
 import { ConctactoComponent } from './pages/conctacto/conctacto.component';
 import { TutorialCompraComponent } from './pages/tutorial-compra/tutorial-compra.component';
 import { YouTubePlayerModule } from "@angular/youtube-player";
 import { SolicitudComponent } from './pages/solicitud/solicitud.component';
 import { AgmCoreModule } from '@agm/core';
-import {GMapModule} from 'primeng/gmap';
+import { GMapModule } from 'primeng/gmap';
 import { FooterComponent } from './pages/footer/footer.component';
 import { ProcesoVentaComponent } from './pages/proceso-venta/proceso-venta.component';
 import { ProcesoVentaFormComponent } from './pages//proceso-venta/proceso-venta-form/proceso-venta-form.component';
 import { ProcesoDeVentaDetailComponent } from './pages/proceso-venta/proceso-de-venta-detail/proceso-de-venta-detail.component';
 import { SolicitudListComponent } from './pages/solicitud/solicitud-list/solicitud-list.component';
 import { ToolbarModule } from 'primeng/toolbar';
-import {ButtonModule} from 'primeng/button';
+import { ButtonModule } from 'primeng/button';
+import { RadioButtonModule } from 'primeng/radiobutton';
 import { SplitButtonModule } from 'primeng/splitbutton';
+
 
 import { ProductoresFormComponent } from './pages/productores/productores-form/productores-form.component';
 import { ProductoresDetailComponent } from './pages/productores/productores-detail/productores-detail.component';
 import { ProductosFormComponent } from './pages/productores/productos-form/productos-form.component';
+import { ProductosListComponent } from './pages/productores/productos-list/productos-list.component';
+import { MisSolicitudesComponent } from './pages/solicitud/mis-solicitudes/mis-solicitudes.component';
+import { ClientesInfoUpdateComponent } from './pages/clientes/clientes-info-update/clientes-info-update.component';
+import { SelectRolesComponent } from './pages/registro/select-roles/select-roles.component';
+import { ProductoresInfoUpdateComponent } from './pages/productores/productores-info-update/productores-info-update.component';
+import { RegistroClienteComponent } from './pages/registro/registro-cliente/registro-cliente.component';
+import { AgregarProductoComponent } from './pages/productores/ofertar-producto/agregar-producto.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +91,13 @@ import { ProductosFormComponent } from './pages/productores/productos-form/produ
     ProductoresFormComponent,
     ProductoresDetailComponent,
     ProductosFormComponent,
+    ProductosListComponent,
+    MisSolicitudesComponent,
+    ClientesInfoUpdateComponent,
+    SelectRolesComponent,
+    ProductoresInfoUpdateComponent,
+    RegistroClienteComponent,
+    AgregarProductoComponent
 
   ],
   imports: [
@@ -103,12 +119,13 @@ import { ProductosFormComponent } from './pages/productores/productos-form/produ
     MenubarModule,
     TabMenuModule,
     YouTubePlayerModule,
+    RadioButtonModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCxcGpBiowdDy2ZQD-g0YUMGop3sY4qzQE'
     }),
     GMapModule,
     ToolbarModule
-    
+
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es' },
   { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

@@ -1,0 +1,53 @@
+<app-sidebar></app-sidebar>
+<br>
+<div class="container col-md-8">
+  <div class="card text-primary">
+    <div class="card-header">
+      <h3>Solicitudes de Venta</h3>
+      <div class="input-group rounded">
+        <input type="search" class="form-control rounded" placeholder="Buscar por nombre de usuario" aria-label="buscar"
+          aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr class="table-info text-center">
+              <th>id</th>
+              <th>Pedido</th>
+              <th>cantidad</th>
+              <th>Fecha Solicitud</th>
+              <th>
+                Acciones
+              </th>
+            </tr>
+          </thead>
+          <tbody >
+            <tr class="text-center" *ngFor="let solicitud of solicitudes">
+              <td>{{ solicitud.id }}  </td>
+              <td>{{ solicitud.pedido }}  </td>
+              <td>{{ solicitud.cantidad }}  </td>
+              <td>{{ solicitud.fechaSolicitud}}  </td>
+              <div class="botonez">
+                <td>
+                  <button type="button" name="button" class="btn btn-warning" [routerLink]="['producto/form, solicitud.id']" >Agregar Producto</button>
+                </td>
+              </div>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+
+    <app-paginator *ngIf="paginador" [paginador]="paginador" enlacePaginador="solicitud-list/page"></app-paginator>
+
+
+  </div>
+</div>
+

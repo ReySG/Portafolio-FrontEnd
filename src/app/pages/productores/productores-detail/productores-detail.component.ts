@@ -73,14 +73,14 @@ export class ProductoresDetailComponent implements OnInit {
         this.router.navigate(['/productores'])
         this.productorService.delete(productor.idProductor).subscribe(resposnse => {
           Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
+            'Productor Eliminado!',
+            `Productor con id ${productor.idProductor} ha sido eliminado con exito`,
+            'success'  
           )
 
         })
-      }
+      } 
     })
-  }
+  }  
 
-}
+}; 

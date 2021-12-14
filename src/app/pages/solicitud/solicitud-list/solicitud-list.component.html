@@ -20,20 +20,20 @@
           <thead>
             <tr class="table-info text-center">
               <th>id</th>
-              <th>username</th>
-              <th>email</th>
-              <th>Estado</th>
+              <th>Pedido</th>
+              <th>cantidad</th>
+              <th>Fecha Solicitud</th>
               <th>
                 Acciones
               </th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>cliente</td>
-              <td>qweasdqw@gmail.com</td>
-              <td>En proceso</td>
+          <tbody >
+            <tr class="text-center" *ngFor="let solicitud of solicitudes">
+              <td>{{ solicitud.id }}  </td>
+              <td>{{ solicitud.pedido }}  </td>
+              <td>{{ solicitud.cantidad }}  </td>
+              <td>{{ solicitud.fechaSolicitud}}  </td>
               <div class="botonez">
                 <td>
                   <button type="button" name="button" class="btn btn-warning">Aprobar</button>
@@ -53,7 +53,8 @@
         <span *ngIf="loading">Actualizando...</span>
       </button>
     </div>
-    <app-paginator></app-paginator>
+    <app-paginator *ngIf="paginador" [paginador]="paginador" enlacePaginador="solicitud-list/page"></app-paginator>
+
 
   </div>
 </div>

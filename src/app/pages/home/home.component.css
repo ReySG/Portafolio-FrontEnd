@@ -2,6 +2,22 @@
     width: 50%;
 } */
 
+.carousel {
+  margin-top: 5%;
+}
+.d-block{
+  height: 750px;
+  opacity: 90%;
+}
+.about_section {
+  margin-top: 10%;
+}
+h3 {
+  color: #ffffff;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 50px;
+  opacity: 100%;
+}
 
 
 .slider_section {

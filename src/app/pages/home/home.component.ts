@@ -24,5 +24,10 @@ export class HomeComponent implements OnInit {
   toContacto() {
     document.getElementById("contacto").scrollIntoView({ behavior: "smooth" });
   }
+  toRegistro() {
+    document.getElementById("registor").scrollIntoView({ behavior: "smooth" });
+  }
+
+ 
 
 }

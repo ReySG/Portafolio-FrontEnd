@@ -1,0 +1,126 @@
+<!-- <app-sidebar></app-sidebar>
+<br>
+<div class="container col-md-8">
+
+  <div class="card text-primary">
+    <div class="card-header">
+      <h3>Mis Solicitudes</h3>
+      <div class="input-group rounded">
+        <input type="search" class="form-control rounded" placeholder="Buscar por nombre" aria-label="buscar"
+          aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+    </div>
+    <div *ngIf="productores?.length == 0" class="alert alert-info">
+      No hay registros!!
+    
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" *ngIf="productores?.length>0">
+          <thead>
+            <tr class="table-info text-center">
+              <th>Id</th>
+              <th>pedido</th>
+              <th>cantidad</th>
+              <th>Fecha Solicitud</th>
+              <th>
+                acciones
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-center" *ngFor="let productor of productores">
+              <td>{{ productor.idProductor }}</td>
+              <td>{{ productor.nombre }}</td>
+              <td>{{ productor.apellidoPaterno }}</td>
+              <td>{{ productor.email }}</td>
+              <td>
+                <button type="button" name="button" class="btn btn-warning" (click)="abrirModal(productor)">Detalle</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="botones">
+      <button (click)="actualizarLista()" (click)="ejecutar()" class="btn btn-primary" type="button" name="button" id="button1"[disabled]="loading">
+
+        <i [ngClass]="{ 'fa-sync fa-spin':loading }" class="fas"></i>
+        <span *ngIf="!loading">Actualizar</span>
+        <span *ngIf="loading">Actualizando...</span>
+      </button>
+
+      <button class="btn btn-rounded btn-primary" type="button" id="button2" [routerLink]="['/productores/form']">Crear productor</button>
+    </div>
+    <app-paginator *ngIf="paginador" [paginador]="paginador" enlacePaginador="productores/page"></app-paginator>
+    
+
+  </div>
+</div> -->
+
+<app-sidebar></app-sidebar>
+<br>
+<div class="container col-md-8">
+  <div class="card text-primary">
+    <div class="card-header">
+      <h3>Mis solicitudes</h3>
+      <div class="input-group rounded">
+        <input type="search" class="form-control rounded" placeholder="Buscar por nombre de usuario" aria-label="buscar"
+          aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr class="table-info text-center">
+              <th>id</th>
+              <th>Pedido</th>
+              <th>cantidad</th>
+              <th>Fecha Solicitud</th>
+              <th>Total</th>
+              <th>
+                Acciones
+              </th>
+            </tr>
+          </thead>
+          <tbody >
+            <tr class="text-center" *ngFor="let solicitud of solicitudes">
+              <td>{{ solicitud.id }}  </td>
+              <td>{{ solicitud.pedido }}  </td>
+              <td>{{ solicitud.cantidad }}  </td>
+              <td>{{ solicitud.fechaSolicitud }}  </td>
+              <td>{{ solicitud.total }}  </td>
+              <div class="botonez">
+                <td>
+                  <button type="button" name="button" class="btn btn-warning">Aprobar</button>
+                  <button type="button" name="button2" class="btn btn-danger">Rechazar</button>
+                </td>
+              </div>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+    <div class="botones">
+      <button class="btn btn-primary" type="button" name="button" id="button1" [disabled]="loading">
+        <i [ngClass]="{ 'fa-sync fa-spin':loading }" class="fas"></i>
+        <span *ngIf="!loading">Actualizar</span>
+        <span *ngIf="loading">Actualizando...</span>
+      </button>
+    </div>
+    <app-paginator *ngIf="paginador" [paginador]="paginador" enlacePaginador="mis-solicitudes/page"></app-paginator>
+
+
+  </div>
+</div>
+

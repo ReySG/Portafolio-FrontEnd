@@ -1,0 +1,45 @@
+button {
+  margin: 15px;
+}
+
+.navbar-brand span {
+  font-weight: bold;
+  color: #000000;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.container {
+  margin-top: 5%;
+}
+
+.card {
+
+  margin-top: 10%;
+
+}
+
+
+
+h3 {
+  text-align: center;
+  font-family: monospace;
+  margin-bottom: 6%;
+}
+
+img {
+  width: 280px;
+
+}
+
+.card {
+
+  width: 2500px;
+  display: flex;
+}
+
+
+.row {
+  text-align: center;
+  display: flex;
+}

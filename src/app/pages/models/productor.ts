@@ -1,7 +1,9 @@
-import { Productos } from "./productos";
+import { Producto } from "./producto";
+import { Usuario } from "./usuario";
 
 export class Productor {
     idProductor: number;
+    rut: number;
     nombre: string;
     apellidoPaterno: string;
     apellidoMaterno: string;
@@ -9,7 +11,8 @@ export class Productor {
     direccion: string;
     numero: number;
     createAt: string;
-    Productos: Productos;
+    productos: Producto[] = [];
+    usuario: Usuario;
 
 
 }

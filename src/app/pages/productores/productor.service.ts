@@ -36,7 +36,7 @@ export class ProductorService {
     return this.http.get<Productor>(`${this.urlEndPoint}/${id}`).pipe(
       catchError(e => {
         if (e.status != 401 && e.error.mensaje) {
-          this.router.navigate(['/productores']);
+          this.router.navigate(['/perfil']);
           console.log(e.error.mensaje);
         }
         return throwError(e);

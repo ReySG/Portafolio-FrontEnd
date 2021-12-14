@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import swal from 'sweetalert2';
 import { Usuario } from '../models/usuario';
+import { UsuariosService } from '../usuarios/usuarios.service';
 
 @Component({
   selector: 'app-perfil',
@@ -12,11 +13,18 @@ export class PerfilComponent implements OnInit {
 
   private fotoSeleccionada: File;
   progreso: number = 0;
-  usuario: Usuario;
-  
-  constructor(public authService: AuthService) { }
+  usuario: any;
+  idUsuario: number;
+
+  constructor(public authService: AuthService, private usuarioService: UsuariosService) { }
 
   ngOnInit(): void {
+    //  this.usuarioService.getUsuario( this.authService.usuario.id).subscribe( user => this.usuario = user);
+
+
+    this.idUsuario = this.authService.usuario.id;
+    this.usuarioService.getUsuario(this.idUsuario).subscribe(user => this.usuario = user);
+    console.log("usuario :", this.usuario);
   }
 
   seleccionarFoto(event) {
@@ -31,7 +39,7 @@ export class PerfilComponent implements OnInit {
 
   subirFoto() {
 
-   
+
   }
 
 

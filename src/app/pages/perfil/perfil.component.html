@@ -1,56 +1,110 @@
 <app-sidebar></app-sidebar>
 <div class="container col-md-8">
-    <div class="card mb-3 content">
-        <h1 class="m-3 pt-3">Perfil</h1>
-        <!-- <img src="../../../assets/images/asdasf.PNG" alt=""   (click)="selectFile.click()"> -->
-        <input type="file" (change)="seleccionarFoto($event)" style="display: none" #selectFile>
+  <div class="card mb-3 content">
+    <h1 class="m-3 pt-3">Perfil</h1>
+    <!-- <img src="../../../assets/images/asdasf.PNG" alt=""   (click)="selectFile.click()"> -->
+    <input type="file" (change)="seleccionarFoto($event)" style="display: none" #selectFile>
 
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-3">
-                    <h5>Nombre</h5>
-                </div>
-                <div class="col-md-9 text-secondary">
-                    {{ authService.usuario.username }}
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-3">
-                    <h5>Email</h5>
-                </div>
-                <div class="col-md-9 text-secondary">
-                    {{ authService.usuario.email }}
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-3">
-                    <h5>Numero Celular</h5>
-                </div>
-                <div class="col-md-9 text-secondary">
-                    3243242332
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-3">
-                    <h5>Direccion</h5>
-                </div>
-                <div class="col-md-9 text-secondary">
-                    Melipilla
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-3">
-                    <h5>Rol</h5>
-                </div>
-                <div class="col-md-9 text-secondary">
-                    {{ authService.usuario.roles }}
-                </div>
-            </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>Nombre</h5>
         </div>
+        <div class="col-md-9 text-secondary">
+          {{ authService.usuario.username }}
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-3">
+          <h5>Email</h5>
+        </div>
+        <div class="col-md-9 text-secondary">
+          {{ authService.usuario.email }}
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-3">
+          <h5>Numero Celular</h5>
+        </div>
+        <div class="col-md-9 text-secondary">
+          3243242332
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-3">
+          <h5>Direccion</h5>
+        </div>
+        <div class="col-md-9 text-secondary">
+          Melipilla
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-3">
+          <h5>Rol</h5>
+        </div>
+        <div class="col-md-9 text-secondary">
+          {{ authService.usuario.roles }}
+        </div>
+      </div>
     </div>
-
+    <button class="btn btn-primary" type="submit">Actualizar Datos</button>
+  </div>
 </div>
+<!-- <div class="container col-md-8" *ngIf="authService.hasRole('ROLE_CLIENTE_EXTERNO')">
+    <div class="card mb-3 content">
+      <h1 class="m-3 pt-3">Perfil</h1>
+      <input type="file" (change)="seleccionarFoto($event)" style="display: none" #selectFile>
+  
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-3">
+            <h5>Nombre</h5>
+          </div>
+          <div class="col-md-9 text-secondary">
+            {{ cliente.nombre }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <h5>Rut</h5>
+          </div>
+          <div class="col-md-9 text-secondary">
+            {{ cliente.rut }}
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-3">
+            <h5>Email</h5>
+          </div>
+          <div class="col-md-9 text-secondary">
+            {{ cliente.email }}
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-3">
+            <h5>Numero Celular</h5>
+          </div>
+          <div class="col-md-9 text-secondary">
+            {{ cliente.numero }}
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-3">
+            <h5>Direccion</h5>
+          </div>
+          <div class="col-md-9 text-secondary">
+            {{ cliente.direccion }}
+          </div>
+        </div>
+
+      </div>
+      <button class="btn btn-primary" type="submit">Actualizar Datos</button>
+    </div>
+  </div> -->

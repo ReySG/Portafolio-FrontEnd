@@ -1,0 +1,17 @@
+button {
+  margin: 10px;
+}
+
+app-paginator {
+  padding-left: 15px;
+}
+
+.container {
+  padding-left: 10%;
+  width: 100%;
+}
+
+
+.card {
+  min-height: 600px;
+}
