@@ -31,7 +31,7 @@ export class UsuariosFormComponent implements OnInit {
       username: ['', [Validators.required, Validators.minLength(5)]],
       password: ['', [Validators.required, Validators.minLength(4)]],
       email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
-      roles: [this.roles]
+      roles: this.selectedRoles
     }),
       this.cargarRoles();
 
