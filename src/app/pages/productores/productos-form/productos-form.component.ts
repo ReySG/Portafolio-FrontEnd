@@ -25,6 +25,7 @@ export class ProductosFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarCliente();
+    console.log(this.solicitud);
   }
 
   cargarCliente():void{

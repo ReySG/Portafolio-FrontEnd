@@ -71,9 +71,9 @@
   </div>
 </div> -->
 
-<app-sidebar></app-sidebar>
-<h1>Works</h1>
-<!-- 
+<!-- <app-sidebar></app-sidebar>
+
+
 <app-sidebar></app-sidebar>
 <br>
 <ul class="alert alert-danger" *ngIf="errores?.length > 0">
@@ -102,29 +102,20 @@
         <div class="form-group">
           <label for="exampleFormControlInput1">Cantidad(kg)</label>
           <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Cantidad a ofrecer"
-            [(ngModel)]="solicitud.items.cantidad" #email="ngModel" name="cantidad">
+            [(ngModel)]="solicitud.items" #email="ngModel" name="cantidad" [ngValue]="cantidad">
         </div>
         <div class="form-group">
           <label for="exampleFormControlInput1">Producto</label>
           <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Producto"
-            [(ngModel)]="solicitud.items.producto.nombre" #nombre="ngModel" name="nombre">
+            [(ngModel)]="solicitud.items" #nombre="ngModel" name="producto" [ngValue]="producto">
         </div>
         <div class="form-group">
           <label for="exampleFormControlInput1">Precio Producto</label>
           <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Precio"
-            [(ngModel)]="solicitud.items.producto.precio" #precio="ngModel" name="precio">
+            [(ngModel)]="solicitud.items" #precio="ngModel" name="precio" [ngValue]="precio">
         </div>
       </form>
     </div>
-
-    <hr>
-    <pre>
-        Estado del formulario: {{ productoForm.valid }}
-        <br>
-        Status: {{ productoForm.status }}
-      </pre>
-    {{ productoForm.value | json }}
-
 
   </div>
 </div> -->

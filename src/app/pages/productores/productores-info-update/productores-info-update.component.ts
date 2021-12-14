@@ -96,7 +96,7 @@ export class ProductoresInfoUpdateComponent implements OnInit {
     this.usuario.productor = this.data;
     this.usuarioService.updateProductor(this.usuario)
       .subscribe(json => {
-        this.router.navigate(['/producto/form'])
+        this.router.navigate(['/agregar-producto'])
         Swal.fire('Cliente Productor Actualizado', `El productor ha sido actualizado exitosamente`, 'success')
       },
         err => {
